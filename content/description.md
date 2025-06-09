@@ -13,7 +13,7 @@ processors and integrating them into functioning pipelines. Instead of solving a
 demonstrates structuring and managing adaptable (RDF) data workflows across domains and use cases.
 
 To make the learning experience tangible, the tutorial includes a practical project based on a common use case for
-SEMANTiCS's audience:
+SEMANTiCS' audience:
 creating a _live_ and multilingual RDF knowledge graph using data from the GeoSphere Austria API. This example
 illustrates how different processors can be combined -- such as a REST API client in JavaScript, a Python-based ML model
 for language translation, a Java-based RML engine, a SHACL validator, and a triple store (SPARQL) update processor.
