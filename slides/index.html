@@ -126,7 +126,7 @@
 <section id="motiv7" class="slide" inlist="" rel="schema:hasPart" resource="#motiv7">
     <h2 property="schema:name">RDF-Connect requirements overview</h2>
     <p>
-        TODO: Diagram with requirements overview
+        TODO: Diagram with requirements overview (as in the pyramid used in the ISWC paper slides)
     </p>
 </section>
 
@@ -134,12 +134,181 @@
     <h2 property="schema:name" sclass="big">RDF-Connect architecture & components</strong></h2>
 </section>
 
+<section id="arch1" class="slide" inlist="" rel="schema:hasPart" resource="#arch1">
+    <h2 property="schema:name">Running example: KG generation, validation and publishing</h2>
+    <p>
+        TODO: High-level description the running example of a KG lifecycle process
+    </p> 
+    <ul>
+        <li>1. Data is collected from heterogeneous sources (e.g., a RDB, a compressed file, a web API)</li>
+        <li>2. Data is transformed into RDF using RML</li>
+        <li>3. RDF data is validated against a shape</li>
+        <li>4. Validated RDF data is published through a graph store</li>
+    </ul>
+    <p>
+        TODO: Diagram of the pipeline as a black box
+    </p>
+</section>
+
+<section id="arch2" class="slide" inlist="" rel="schema:hasPart" resource="#arch2">
+    <h2 property="schema:name">RDF-Connect architecture overview</h2>
+    <p>
+        TODO: Diagram with generic architecture overview. I imagine a simple layered architecture having:  
+    </p>
+    <ul>
+        <li>- an orchestration layer at the top</li>
+        <li>- a runners layer highlighting the different environments (e.g., Node.js, browser, Python, etc.)</li>
+        <li>- a processors layer with the processors belonging to the different environments</li>
+        <li>- a vertical channel layer across all other layers, since channels are used by all other components</li>
+</section>
+
+<section id="arch3" class="slide" inlist="" rel="schema:hasPart" resource="#arch3">
+    <h2 property="schema:name">RDF-Connect data model overview</h2>
+    <p>
+        TODO: Diagram with RDFC ontology showing main concepts and relations (similar to the one in the ISWC paper)
+    </p>
+</section>
+
+<section id="arch4" class="slide" inlist="" rel="schema:hasPart" resource="#arch4">
+    <h2 property="schema:name">RDF-Connect pipeline desing of running example</h2>
+    <p>
+        TODO: Architecture diagram of the running example with RDFC components (similar to the one in the website)
+    </p>
+</section>
+
+<section id="arch5" class="slide" inlist="" rel="schema:hasPart" resource="#arch5">
+    <h2 property="schema:name">RDF-Connect dive in: Pipeline descriptor</h2>
+    <p>
+        TODO: Describe file format and basic structure 
+    </p>
+    <p>
+        TODO: code snippet showing part of the running example pipeline descriptor (e.g., the imports and sections for where the, runners, channels and processors are defined)
+    </p> 
+</section>
+
+<section id="arch6" class="slide" inlist="" rel="schema:hasPart" resource="#arch6">
+    <h2 property="schema:name">RDF-Connect dive in: Runner</h2>
+    <p>
+        TODO: Describe goal and responsibilities of a runner 
+    </p>
+    <p>
+        TODO: code snippet of a runner definition and how it is included in the pipeline descriptor of the runnning example
+    </p>
+    <p>
+        TODO: mention existing implementations
+    </p> 
+</section>
+
+<section id="arch7" class="slide" inlist="" rel="schema:hasPart" resource="#arch7">
+    <h2 property="schema:name">RDF-Connect dive in: Processor (part 1)</h2>
+    <p>
+        TODO: Describe structure and design of a processor
+    </p>
+    <p>
+        TODO: code snippet of a processor definition from the runinng example. Highlight the use of SHACL.
+    </p>
+</section>
+
+<section id="arch8" class="slide" inlist="" rel="schema:hasPart" resource="#arch8">
+    <h2 property="schema:name">RDF-Connect dive in: Processor (part 2)</h2>
+    <p>
+        TODO: code snippet of how a processor is defined in the pipeline descriptor of the running example
+    </p>
+    <p>
+        TODO: mention here the discovery functionality in github
+    </p> 
+</section>
+
+<section id="arch9" class="slide" inlist="" rel="schema:hasPart" resource="#arch9">
+    <h2 property="schema:name">RDF-Connect dive in: Channel (part 1)</h2>
+    <p>
+        TODO: Description and capabilities of channels. Mention implementation choice of gRPC.
+    </p>
+</section>
+
+<section id="arch10" class="slide" inlist="" rel="schema:hasPart" resource="#arch10">
+    <h2 property="schema:name">RDF-Connect dive in: Channel (part 2)</h2>
+    <p>
+        TODO: Describe streaming channels and why they are needed. Map to the running example.
+    </p> 
+</section>
+
+<section id="arch11" class="slide" inlist="" rel="schema:hasPart" resource="#arch11">
+    <h2 property="schema:name">RDF-Connect dive in: Orchestrator (part 1)</h2>
+    <p>
+        TODO: Goal and responsibilities of the orchestrator
+    </p>
+    <p>
+        TODO: describe existing implementation @rdfc/orchestrator-js
+    </p>
+</section>
+
+<section id="arch12" class="slide" inlist="" rel="schema:hasPart" resource="#arch12">
+    <h2 property="schema:name">RDF-Connect dive in: Orchestrator (part 2)</h2>
+    <p>
+        TODO: Sequence diagram showing the orchestrator in action with the running example
+    </p>
+</section>
+
+<section id="recap_proc" class="slide index" inlist="" rel="schema:hasPart" resource="#recap_proc">
+    <h2 property="schema:name" class="big">Finally! coffe break ☕</strong></h2>
+</section>
+
 <section id="recap_proc" class="slide index" inlist="" rel="schema:hasPart" resource="#recap_proc">
     <h2 property="schema:name" class="big">How to implement a processor?</strong></h2>
 </section>
 
+<section id="proc1" class="slide" inlist="" rel="schema:hasPart" resource="#proc1">
+    <h2 property="schema:name">Recap of a processor structure (part 1)</h2>
+    <p>
+        TODO: Internal code structure (init and operational methods)
+    </p>
+</section>
+
+<section id="proc2" class="slide" inlist="" rel="schema:hasPart" resource="#proc2">
+    <h2 property="schema:name">Recap of a processor structure (part 2)</h2>
+    <p>
+        TODO: How data is packed and unpacked?
+    </p>
+</section>
+
+<section id="proc3" class="slide" inlist="" rel="schema:hasPart" resource="#proc3">
+    <h2 property="schema:name">Hands-on: Build your own processor</h2>
+    <p>
+        TODO: Link to the step-by-step guide
+    </p>
+</section>
+
 <section id="recap_pipl" class="slide index" inlist="" rel="schema:hasPart" resource="#recap_pipl">
     <h2 property="schema:name" class="big">How to build and execute pipelines?</strong></h2>
+</section>
+
+<section id="pipe1" class="slide" inlist="" rel="schema:hasPart" resource="#pipe1">
+    <h2 property="schema:name">Recap of a pipeline structure (part 1)</h2>
+    <p>
+        TODO: All sections of a pipeline descriptor
+    </p>
+</section>
+
+<section id="pipe2" class="slide" inlist="" rel="schema:hasPart" resource="#pipe2">
+    <h2 property="schema:name">Recap of a pipeline structure (part 2)</h2>
+    <p>
+        TODO: How to include the created processor in the previous hands-on into a pipeline descriptor?
+    </p>
+</section>
+
+<section id="pipe3" class="slide" inlist="" rel="schema:hasPart" resource="#pipe3">
+    <h2 property="schema:name">Recap of a pipeline structure (part 3)</h2>
+    <p>
+        TODO: How to execute a pipeline?
+    </p>
+</section>
+
+<section id="pipe4" class="slide" inlist="" rel="schema:hasPart" resource="#pipe4">
+    <h2 property="schema:name">Hands-on: Let's run a pipeline</h2>
+    <p>
+        TODO: Link to the step-by-step guide
+    </p>
 </section>
 
 <footer>
