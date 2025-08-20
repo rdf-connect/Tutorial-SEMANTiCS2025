@@ -38,7 +38,7 @@
 
 <section id="title" class="slide title" inlist="" rel="schema:hasPart" resource="#title">
     <h2 property="schema:name" style="font-size: 2.5em">Building Streaming and Cross-Environment Data Processing
-        Pipelines with RDF-Connect</h2>
+        Pipelines with <strong>RDF-Connect</strong></h2>
     <ul class="author inline">
         <li><a href="https://smessaert.be">Ieben Smessaert</a></li>
         <li><a href="#">Arthur Vercruysse</a></li>
@@ -47,32 +47,100 @@
     </ul>
     <p class="affiliation"><a href="https://idlab.technology/">Ghent University – imec – IDLab, Belgium</a></p>
     <h3>Tutorial Website: <a href="">TODO</a></h3>
+    <p>
+        <a href="https://2025-eu.semantics.cc/page/accepted_workshops_tutorials">SEMANTiCS 2025</a>,
+        <span rel="schema:datePublished">September 3, 2025</span>
+    </p>
 </section>
 
-<section id="intro" class="slide" inlist="" rel="schema:hasPart" resource="#intro">
-    <h2 property="schema:name" class="big" style="margin-top: 20px">Intro slide</h2>
+<section id="agenda" class="slide" inlist="" rel="schema:hasPart" resource="#agenda">
+    <h2 property="schema:name" class="big" style="margin-top: 20px">Agenda</h2>
     <ul>
-        <li style="margin-top: 70px;"><strong>First part: Introduction to RDF-Connect</strong></li>
+        <li style="margin-top: 70px;"><strong>First part: Introduction to RDF-Connect (1:20h)</strong></li>
         <ul>
-            <li style="margin-left: 80px;">What is RDF-Connect?</li>
-            <li style="margin-left: 80px;">RDF-Connect pipelines</li>
-            <li style="margin-left: 80px;">RDF-Connect processors</li>
+            <li style="margin-left: 80px;">Why RDF-Connect?</li>
+            <li style="margin-left: 80px;">RDF-Connect architecture & components</li>
         </ul>
-        <li style="margin-top: 10px;"><strong>Second part: Hands-on</strong></li>
+        <li style="margin-top: 10px;"><strong>Coffee break ☕ (10m)</strong></li>
+        <li style="margin-top: 10px;"><strong>Second part: Hands-on (1:30h)</strong></li>
         <ul>
             <li style="margin-left: 80px;">Implementing a processor</li>
             <li style="margin-left: 80px;">Assembling a pipeline</li>
         </ul>
-        <li style="margin-top: 10px;"><strong>Third part: Hackaton</strong></li>
+        
     </ul>
 </section>
 
-<section id="index" class="slide index" inlist="" rel="schema:hasPart" resource="#index">
-    <ul>
-        <li><a href="#intro">Intro</a></li>
-    </ul>
+<section id="why_rdfc" class="slide index" inlist="" rel="schema:hasPart" resource="#why_rdfc">
+    <h2 property="schema:name" class="big">Why RDF-Connect?</strong></h2>
 </section>
 
+<section id="motiv1" class="slide" inlist="" rel="schema:hasPart" resource="#motiv1">
+    <h2 property="schema:name">Data processing pipelines are crucial in modern data-centric systems</h2>
+    <p>
+        They enable the transformation, integration, and analysis of data from and to various sources and targets.
+    </p>
+    <div style="text-align: center">
+        <img src="img/fig-1.svg" style="width: 80%;" />
+    </div>
+</section>
+
+<section id="motiv2" class="slide" inlist="" rel="schema:hasPart" resource="#motiv1">
+    <h2 property="schema:name">Pipelines are usually composed of multiple complex tasks</h2>
+    <p>
+        However, building, managing and reusing these pipelines can be complex and challenging.
+    </p>
+    <div style="text-align: center">
+        <img src="img/fig-2.svg" style="width: 60%;" />
+    </div>
+</section>
+
+<section id="motiv3" class="slide" inlist="" rel="schema:hasPart" resource="#motiv3">
+    <h2 property="schema:name">Pipelines are ubiqutous in real world systems</h2>
+    <p>
+        TODO: examples of pipelines in real world systems
+    </p>
+</section>
+
+<section id="motiv4" class="slide" inlist="" rel="schema:hasPart" resource="#motiv4">
+    <h2 property="schema:name">Stream processing as a universal computational paradigm </h2>
+    <p>
+        TODO: Explain why stream processign
+    </p>
+</section>
+
+<section id="motiv5" class="slide" inlist="" rel="schema:hasPart" resource="#motiv5">
+    <h2 property="schema:name">Cross-environment execution: choosing the best of all worlds</h2>
+    <p>
+        TODO: Why cross-environment execution is needed
+    </p>
+</section>
+
+<section id="motiv6" class="slide" inlist="" rel="schema:hasPart" resource="#motiv6">
+    <h2 property="schema:name">Declarative, reusable and provenance-aware data processing</h2>
+    <p>
+        TODO: Explain why declarative and provenance-aware data processing is needed
+    </p>
+</section>
+
+<section id="motiv7" class="slide" inlist="" rel="schema:hasPart" resource="#motiv7">
+    <h2 property="schema:name">RDF-Connect requirements overview</h2>
+    <p>
+        TODO: Diagram with requirements overview
+    </p>
+</section>
+
+<section id="rdfc_arch" class="slide index" inlist="" rel="schema:hasPart" resource="#rdfc_arch">
+    <h2 property="schema:name" sclass="big">RDF-Connect architecture & components</strong></h2>
+</section>
+
+<section id="recap_proc" class="slide index" inlist="" rel="schema:hasPart" resource="#recap_proc">
+    <h2 property="schema:name" class="big">How to implement a processor?</strong></h2>
+</section>
+
+<section id="recap_pipl" class="slide index" inlist="" rel="schema:hasPart" resource="#recap_pipl">
+    <h2 property="schema:name" class="big">How to build and execute pipelines?</strong></h2>
+</section>
 
 <footer>
     <p class="license">
