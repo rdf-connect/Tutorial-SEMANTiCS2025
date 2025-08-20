@@ -70,17 +70,13 @@ conceptual foundations of the RDFC framework and hands-on implementation.
 
 |                                     | Topic                                            | Duration |
 |-------------------------------------|--------------------------------------------------|----------|
-| **Morning 1: Introduction**         | Introduction                                     | 0:10     |
-| (_1:20_)                            | Introduction to RDF-Connect Processors           | 0:40     |
-|                                     | Introduction to RDF-Connect Pipelines            | 0:30     |
-| *Break*                             | ---                                              | ---      |
-| **Morning 2: Processors** (_1:20_)  | Recap: How to implement a RDFC Processor?        | 0:10     |
-|                                     | Hands-on: Implementing a processor               | 1:10     |
+| **Morning: Introduction** (_1:30_)  | Why RDF-Connect?                                 | 0:30     |
+|                                     | RDF-Connect architecture & components            | 1:00     |
 | *Lunch Break*                       | ---                                              | ---      |
-| **Afternoon 1: Apps** (_1:20_)      | Recap: How to build and execute a RDFC Pipeline? | 0:10     |
-|                                     | Hands-on: Assembling a pipeline                  | 1:10     |
-| *Break*                             | ---                                              | ---      |
-| **Afternoon 1: Hackathon** (_1:20_) | Hackathon                                        | 1:20     |
+| **Afternoon: Hands-on** (_1:30_)    | Recap: How to implement a RDFC Processor?        | 0:10     |
+|                                     | **Hands-on**: Implementing a processor           | 0:35     |
+|                                     | Recap: How to build and execute a RDFC Pipeline? | 0:10     |
+|                                     | **Hands-on**: Assembling a pipeline              | 0:35     |
 
 <figcaption markdown="block">
 Planning of the tutorial
