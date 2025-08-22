@@ -84,23 +84,9 @@ Planning of the tutorial
 </figure>
 
 
-The program is structured into four sessions, two in the morning and two in the afternoon, progressively building from a
+The program is structured in two sessions, one in the morning and one in the afternoon, progressively building from a
 conceptual overview to hands-on development.
-The day concludes with a collaborative hackathon where participants apply what they have learned to explore extensions
-or develop new applications.
 
-The **first session** introduces RDFC's architecture at a high level.
-It also provides an overview of the tutorial’s content and a detailed description of the pipeline, participants will
-build throughout the day.
+The **first session** start by providing an overview of the tutorial’s content and a description of the pipeline, participants will build throughout the day. Then, the motivation and rationale of RDFC will be presented, together with its high level architecture.
 
-The **second session** focuses on processor development. Participants will learn to implement a processor in a
-language of choice and configure it for pipeline integration.
-They will implement a processor that transforms a stream of RDF triples based on a configured language translation.
-The implementation will leverage a lightweight ML model to perform the translations locally.
-
-The **third session** covers pipeline assembly using both existing and the participant's custom-built processor.
-Participants will construct a working streaming pipeline that pulls data, applies transformations, validates,
-and publishes the results to a triple store.
-
-The **fourth session** is a hackathon, where all participants work together to either extend the pipeline created in the
-previous session with new data sources, or build a new pipeline using existing processors to achieve a different goal.
+The **second session** is primarily hands-on, focusing on (i) _processor development_: participants will learn to implement a processor in a language of choice and configure it for pipeline integration. Concretely, the participants will implement a processor that transforms a stream of RDF triples based on a configured language translation, bu leveraging a lightweight ML model to perform the translations locally; and (ii) _pipeline assembly_: participants will construct a working streaming pipeline, using both existing and the participant's custom-built processor, that pulls data, applies transformations, validates and publishes the results to a triple store.
