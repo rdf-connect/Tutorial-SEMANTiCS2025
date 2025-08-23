@@ -4,9 +4,6 @@
     <title>Building Streaming and Cross-Environment Data Processing Pipelines with RDF-Connect</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-turtle.min.js"></script>
     <link rel="stylesheet" href="shower/themes/material/styles/styles.css">
     <link rel="stylesheet" href="styles/custom.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
@@ -61,22 +58,57 @@
     <ul>
         <li style="margin-top: 70px;"><strong>First part: Introduction to RDF-Connect (1:20h)</strong></li>
         <ul>
-            <li style="margin-left: 80px;">What are you going to do in this tutorial?</li>
-            <li style="margin-left: 80px;">Why RDF-Connect?</li>
-            <li style="margin-left: 80px;">RDF-Connect architecture & components</li>
+            <li style="margin-left: 80px;">What will we do in this tutorial? 🤔</li>
+            <li style="margin-left: 80px;">The what and why of RDF-Connect? 🎯</li>
+            <li style="margin-left: 80px;">RDF-Connect architecture & components ⚙️</li>
         </ul>
         <li style="margin-top: 10px;"><strong>Coffee break ☕ (10m)</strong></li>
         <li style="margin-top: 10px;"><strong>Second part: Hands-on (1:30h)</strong></li>
         <ul>
-            <li style="margin-left: 80px;">Implementing a processor</li>
-            <li style="margin-left: 80px;">Assembling a pipeline</li>
+            <li style="margin-left: 80px;">Implementing a processor 🏗️</li>
+            <li style="margin-left: 80px;">Assembling a pipeline 🔗</li>
         </ul>
         
     </ul>
 </section>
 
+<section id="why_tutorial" class="slide index" inlist="" rel="schema:hasPart" resource="#why_tutorial">
+    <h2 property="schema:name" class="big">What will we do in this tutorial? 🤔</strong></h2>
+</section>
+
+<section id="overview" class="slide" inlist="" rel="schema:hasPart" resource="#overview">
+    <h2 property="schema:name">Tutorial overview</h2>
+    <!--I want to create a layout in this slide with 2 rows, and the first row having 2 columns-->
+    <div style="display: flex; flex-direction: row; justify-content: space-around; margin-top: 20px;">
+        <div style="flex: 1; text-align: left; margin-right: 10px;">
+            <h4 style="margin: unset;">Part 1: Introduction to RDF-Connect</h4>
+            <p style="font-size: 12pt;">
+                You will learn the motivation behind RDF-Connect, its conceptual model and architecture,
+                by following a running example of a knowledge graph lifecycle pipeline. 
+            </p>
+        </div>
+        <div style="flex: 1; text-align: left; margin-left: 20px;">
+            <h4 style="margin: unset;">Part 2: Hands-on</h4>
+            <p style="font-size: 12pt;">
+                You will implement a ML-based processor and integrate it in the knowledge graph lifecycle pipeline. 
+            </p>
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: column; justify-content: space-around;">
+        <div style="text-align: center;">
+            <h4 style="margin: unset;">KG lifecycle pipeline</h4>
+            <p style="font-size: 12pt; text-align: left;">
+                A pipeline of a knowledge graph lifecycle process, where weather data (from an Austrian API service) will be collected, transformed into RDF, validated against a SHACL shape, enriched and published on a RDF graph store.
+            </p>
+            <div style="text-align: center">
+                <img src="img/fig-0.svg" style="width: 80%;" />
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="why_rdfc" class="slide index" inlist="" rel="schema:hasPart" resource="#why_rdfc">
-    <h2 property="schema:name" class="big">Why RDF-Connect?</strong></h2>
+    <h2 property="schema:name" class="big">The what and why of RDFC? 🎯</strong></h2>
 </section>
 
 <section id="motiv1" class="slide" inlist="" rel="schema:hasPart" resource="#motiv1">
@@ -101,23 +133,52 @@
 
 <section id="motiv3" class="slide" inlist="" rel="schema:hasPart" resource="#motiv3">
     <h2 property="schema:name">Pipelines are ubiqutous in real world systems</h2>
-    <p>
-        TODO: examples of pipelines in real world systems
-    </p>
+    <ul>
+        <li>- ETL pipelines for data warehousing</li>
+        <li>- Data integration pipelines for combining data from multiple sources</li>
+        <li>- Machine learning pipelines for training and deploying models</li>
+        <li>- Real-time data processing pipelines for streaming data</li>
+    </ul>
+    <div style="display: flex; flex-direction: row; justify-content: space-around;">
+        <img src="img/fig-3.png" style="width: 15%;" />
+        <img src="img/fig-4.jpg" style="width: 40%;" />
+        <img src="img/fig-5.jpg" style="width: 40%;" />
+    </div>
 </section>
 
 <section id="motiv4" class="slide" inlist="" rel="schema:hasPart" resource="#motiv4">
-    <h2 property="schema:name">Stream processing as a universal computational paradigm </h2>
-    <p>
-        TODO: Explain why stream processign
-    </p>
+    <h2 property="schema:name">Stream processing computational paradigm for continuos and dynamic data systems</h2>
+    <div style="display: flex; flex-direction: column; justify-content: space-around;">
+        <blockquote style="font-size: 14pt; font-style: italic; margin: 20px; border-left: 4px solid #ccc; padding-left: 10px;">
+            Traditional batch processing systems suffer from latency
+            problems due to the need to collect input data into batches
+            before it can be processed.
+            <cite style="display: block; margin-top: 10px; font-size: 12pt; text-align: right;">— Isah et al., A Survey of Distributed Data Stream Processing Frameworks, 2019</cite>
+        </blockquote>
+        <p style="font-size: 14pt;">
+            Current real-world data systems often require real-time or near-real-time processing of dynamic data.
+            Stream processing allows for the continuous ingestion and processing of data as it arrives, enabling timely insights and actions.
+        </p>
+        <div style="text-align: right; position: absolute; bottom: 0px; width: 100%; height: 140px;">
+            <img src="img/fig-6.png" style="width: 35%;">
+        </div>
+    </div>
 </section>
 
 <section id="motiv5" class="slide" inlist="" rel="schema:hasPart" resource="#motiv5">
     <h2 property="schema:name">Cross-environment execution: choosing the best of all worlds</h2>
-    <p>
-        TODO: Why cross-environment execution is needed
+    <p style="font-size: 14pt;">
+        The ability to execute applications written in different programming languages in an integrated manner offers several advantages:
     </p>
+    <ul style="font-size: 12pt;">
+        <li>- <strong>Flexibility:</strong> Developers can choose the most suitable language for each component of the application based on its strengths and capabilities.</li>
+        <li>- <strong>Code reuse:</strong> Existing libraries and frameworks can be leveraged, reducing development time and effort.</li>
+        <li>- <strong>Scalability:</strong> Components can be scaled independently based on their specific requirements, allowing for efficient resource utilization.</li>
+        <li>- <strong>Efficiency:</strong> Not all parts of an application require the same level of optimization.</li>
+    </ul>
+    <div style="text-align: center; position: absolute; bottom: 0px; width: 85%; height: 150px;">
+        <img src="img/fig-7.jpg" style="width: 35%;">
+    </div>
 </section>
 
 <section id="motiv6" class="slide" inlist="" rel="schema:hasPart" resource="#motiv6">
@@ -144,224 +205,153 @@
     </p>
 </section>
 
-    <section id="rdfc_arch" class="slide index" inlist="" rel="schema:hasPart" resource="#rdfc_arch">
-        <h2 property="schema:name" sclass="big">RDF-Connect architecture & components</strong></h2>
-    </section>
+<section id="rdfc_arch" class="slide index" inlist="" rel="schema:hasPart" resource="#rdfc_arch">
+    <h2 property="schema:name" sclass="big">RDF-Connect architecture & components</strong></h2>
+</section>
 
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">Running example: the goal</h2>
-        <ul>
-            <li>1. Retrieve data from <b>weather API</b>
-            </li>
-            <li>2. Data is transformed into RDF using <b>RML</b>
-            </li>
-            <li>3. RDF data is <b>validated</b> against a shape</li>
-            <li>4. <b>Translate</b> to literals to native language</li>
-            <li>5. RDF data is <b>published</b> through a triple store</li>
-        </ul>
+<section id="arch1" class="slide" inlist="" rel="schema:hasPart" resource="#arch1">
+    <h2 property="schema:name">Running example: KG generation, validation and publishing</h2>
+    <p>
+        TODO: High-level description the running example of a KG lifecycle process
+    </p> 
+    <ul>
+        <li>1. Data is collected from heterogeneous sources (e.g., a RDB, a compressed file, a web API)</li>
+        <li>2. Data is transformed into RDF using RML</li>
+        <li>3. RDF data is validated against a shape</li>
+        <li>4. Validated RDF data is published through a graph store</li>
+    </ul>
+    <p>
+        TODO: Diagram of the pipeline as a black box
+    </p>
+</section>
 
-        <div style="text-align: center">
-            <img src="img/RunningExample.svg" style="width: 80%;" />
-        </div>
-    </section>
+<section id="arch2" class="slide" inlist="" rel="schema:hasPart" resource="#arch2">
+    <h2 property="schema:name">RDF-Connect architecture overview</h2>
+    <p>
+        TODO: Diagram with generic architecture overview. I imagine a simple layered architecture having:  
+    </p>
+    <ul>
+        <li>- an orchestration layer at the top</li>
+        <li>- a runners layer highlighting the different environments (e.g., Node.js, browser, Python, etc.)</li>
+        <li>- a processors layer with the processors belonging to the different environments</li>
+        <li>- a vertical channel layer across all other layers, since channels are used by all other components</li>
+</section>
 
-    <section class="slide" inlist="" rel="schema:hasPart" hidden>
-        <h2 property="schema:name">High level architecture overview</h2>
-        <p>
-            TODO: Diagram with generic architecture overview. I imagine a simple layered architecture having:
-        </p>
-        <ul>
-            <li>- an orchestration layer at the top</li>
-            <li>- a runners layer highlighting the different environments (e.g., Node.js, browser, Python, etc.)</li>
-            <li>- a processors layer with the processors belonging to the different environments</li>
-            <li>- a vertical channel layer across all other layers, since channels are used by all other components</li>
-        </ul>
-    </section>
+<section id="arch3" class="slide" inlist="" rel="schema:hasPart" resource="#arch3">
+    <h2 property="schema:name">RDF-Connect data model overview</h2>
+    <p>
+        TODO: Diagram with RDFC ontology showing main concepts and relations (similar to the one in the ISWC paper)
+    </p>
+</section>
 
-    <section class="slide" inlist="" rel="schema:hasPart" hidden>
-        <h2 property="schema:name">RDF-Connect data model overview</h2>
-        <p>
-            TODO: Diagram with RDFC ontology showing main concepts and relations (similar to the one in the ISWC paper)
-        </p>
-    </section>
+<section id="arch4" class="slide" inlist="" rel="schema:hasPart" resource="#arch4">
+    <h2 property="schema:name">RDF-Connect pipeline desing of running example</h2>
+    <p>
+        TODO: Architecture diagram of the running example with RDFC components (similar to the one in the website)
+    </p>
+</section>
 
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">Pipeline design of running example</h2>
-        <div class="cover place center" style="width: 70%">
-            <img src="img/ArchitectureOverview.svg" style="width: 100%;" />
-        </div>
-    </section>
+<section id="arch5" class="slide" inlist="" rel="schema:hasPart" resource="#arch5">
+    <h2 property="schema:name">RDF-Connect dive in: Pipeline descriptor</h2>
+    <p>
+        TODO: Describe file format and basic structure 
+    </p>
+    <p>
+        TODO: code snippet showing part of the running example pipeline descriptor (e.g., the imports and sections for where the, runners, channels and processors are defined)
+    </p> 
+</section>
 
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">Pipeline File Structure</h2>
-        <div style="display: flex; gap: 2rem; align-items: flex-start;">
-            <div>
+<section id="arch6" class="slide" inlist="" rel="schema:hasPart" resource="#arch6">
+    <h2 property="schema:name">RDF-Connect dive in: Runner</h2>
+    <p>
+        TODO: Describe goal and responsibilities of a runner 
+    </p>
+    <p>
+        TODO: code snippet of a runner definition and how it is included in the pipeline descriptor of the runnning example
+    </p>
+    <p>
+        TODO: mention existing implementations
+    </p> 
+</section>
 
-                <p>A pipeline is described in RDF configuration files:</p>
-                <ul style="font-size:0.9em; line-height:1.6;">
-                    <li>🔗 <strong>Channels</strong><br>
-                        Define how data flows between processors.</li>
-                    <li>📦 <strong>Runners</strong><br>
-                        Specify which runtime environments are needed.</li>
-                    <li>⚙️ <strong>Processors</strong><br>
-                        Tasks that run inside a runner.</li>
-                </ul>
+<section id="arch7" class="slide" inlist="" rel="schema:hasPart" resource="#arch7">
+    <h2 property="schema:name">RDF-Connect dive in: Processor (part 1)</h2>
+    <p>
+        TODO: Describe structure and design of a processor
+    </p>
+    <p>
+        TODO: code snippet of a processor definition from the runinng example. Highlight the use of SHACL.
+    </p>
+</section>
 
-            </div>
-            <div style="flex: 1; text-align: center;">
-                <img src="img/PipelineFile.svg" style="width: 80%;" />
-            </div>
-        </div>
-    </section>
+<section id="arch8" class="slide" inlist="" rel="schema:hasPart" resource="#arch8">
+    <h2 property="schema:name">RDF-Connect dive in: Processor (part 2)</h2>
+    <p>
+        TODO: code snippet of how a processor is defined in the pipeline descriptor of the running example
+    </p>
+    <p>
+        TODO: mention here the discovery functionality in github
+    </p> 
+</section>
 
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">Deep Dive: SHACL Shapes</h2>
-        <p>
-            Each <strong>runner</strong> and <strong>processor</strong> comes with a SHACL shape.<br>
-            These shapes serve as the glue of RDF-Connect:
-        </p>
-        <ul>
-            <li>✅ <strong>Validation of correctness</strong><br>
-                Ensure pipeline definitions are consistent before execution.</li>
-            <li>🔄 <strong>Mapping RDF → JSON(-LD)</strong><br>
-                Runners don’t need to understand RDF: processor arguments are delivered as JSON (<code>sh:name</code>
-                fields map directly to JSON object fields names).
-            </li>
-            <li>📖 <strong>Documentation</strong><br>
-                SHACL shapes double as a human-readable contract for processor usage.</li>
-        </ul>
-    </section>
+<section id="arch9" class="slide" inlist="" rel="schema:hasPart" resource="#arch9">
+    <h2 property="schema:name">RDF-Connect dive in: Channel (part 1)</h2>
+    <p>
+        TODO: Description and capabilities of channels. Mention implementation choice of gRPC and the protobuf data schema.
+    </p>
+</section>
 
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">Deep Dive Orchestrator: Overview</h2>
+<section id="arch10" class="slide" inlist="" rel="schema:hasPart" resource="#arch10">
+    <h2 property="schema:name">RDF-Connect dive in: Channel (part 2)</h2>
+    <p>
+        TODO: Describe streaming channels and why they are needed. Map to the running example.
+    </p> 
+</section>
 
-        <ul>
-            <li>📂 <strong>Understand pipeline configuration</strong><br>
-                Resolve the full pipeline, including any imported modules.</li>
+<section id="arch11" class="slide" inlist="" rel="schema:hasPart" resource="#arch11">
+    <h2 property="schema:name">RDF-Connect dive in: Orchestrator (part 1)</h2>
+    <p>
+        TODO: Goal and responsibilities of the orchestrator
+    </p>
+    <p>
+        TODO: describe existing implementation @rdfc/orchestrator-js
+    </p>
+</section>
 
-            <li>✅ <strong>Validate pipeline</strong><br>
-                Use SHACL shapes to check that the pipeline definition is correct.</li>
+<section id="arch12" class="slide" inlist="" rel="schema:hasPart" resource="#arch12">
+    <h2 property="schema:name">RDF-Connect dive in: Orchestrator (part 2)</h2>
+    <p>
+        TODO: Sequence diagram showing the orchestrator in action with the running example
+    </p>
+</section>
 
-            <li>🔌 <strong>Communicate with runners</strong><br>
-                Interact with runners via <em>gRPC</em> to control processors and exchange messages.</li>
+<section id="arch13" class="slide" inlist="" rel="schema:hasPart" resource="#arch13">
+    <h2 property="schema:name">RDF-Connect dive in: Logging</h2>
+    <p>
+        TODO: Explanation of how logging works
+    </p>
+</section>
 
-            <li>📊 <strong>Centralized logging</strong><br>
-                Collect logs from all runners and processors for monitoring and debugging.</li>
-        </ul>
-    </section>
+<section id="arch14" class="slide" inlist="" rel="schema:hasPart" resource="#arch14">
+    <h2 property="schema:name">RDF-Connect dive in: Javascript ecosystem</h2>
+    <p>
+        TODO: Overview and main links to resources
+    </p>
+</section>
 
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">Deep Dive Orchestrator: Responsibilities</h2>
+<section id="arch14" class="slide" inlist="" rel="schema:hasPart" resource="#arch14">
+    <h2 property="schema:name">RDF-Connect dive in: Python ecosystem</h2>
+    <p>
+        TODO: Overview and main links to resources
+    </p>
+</section>
 
-        <ol>
-            <li>📜 <strong>Initialize Pipeline</strong>
-                <ol>
-                    <li>▶️ <strong>Start runners</strong><br>
-                        Launch each runner using its configured command.</li>
-                    <li>⚙️ <strong>Initialize processors</strong><br>
-                        Instruct runners to start the processors they manage.</li>
-                </ol>
-            </li>
-            <li>📡 <strong>Route messages</strong><br>
-                Deliver incoming messages to the correct runner / processor.</li>
-        </ol>
-    </section>
-
-
-    <section class="slide" inlist="" rel="schema:hasPart" hidden>
-        <h2 property="schema:name">Deep Dive Orchestrator: Message Types</h2>
-        <ul>
-            <li>✉️ <strong>Single messages</strong><br>
-                Small payloads that fit in a single frame.</li>
-            <li>🌊 <strong>Streaming messages</strong><br>
-                Continuous streams for large data that can’t fit in one frame.</li>
-        </ul>
-    </section>
-
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">Deep Dive Runner: Overview</h2>
-        <ul>
-            <li>🤝 <strong>Bridge between processors and orchestrator</strong><br>
-                Make it possible to combine processors written in different programming languages.</li>
-            <li>🌱 <strong>Lower the barrier for new processors</strong><br>
-                Runners are designed so the community can easily add their own processors.</li>
-        </ul>
-
-        <p>
-            Currently runners exist for Javascript, JVM and Python.
-        </p>
-    </section>
-
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">Deep Dive Runner: Responsibilities</h2>
-        <ol>
-            <li>▶️ <strong>Start from command line</strong><br>
-                Runners can be launched as standalone processes.</li>
-            <li>🔌 <strong>Connect with orchestrator via gRPC</strong><br>
-                Handle control messages and data exchange.</li>
-            <li>⚙️ <strong>Manage processors</strong><br>
-                Start, stop, and monitor the processors they host.</li>
-        </ol>
-    </section>
-
-    <section class="slide" inlist="" rel="schema:hasPart" hidden>
-        <h2 property="schema:name">Deep Dive Runner: Example</h2>
-
-        <p>Example of a runner configuration in RDF (Turtle):</p>
-
-        <div style="display: flex; gap: 2rem; align-items: flex-start;">
-            <pre><code style="font-size:0.5em; line-height:1.6;" id="runner-snippet" class="language-turtle"
-                    data-src="code/runner-example-2.ttl"></code></pre>
-
-            <pre><code style="font-size:0.5em; line-height:1.6;" id="runner-snippet" class="language-turtle"
-                    data-src="code/runner-example.ttl"></code></pre>
-        </div>
-    </section>
-
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">Deep Dive Processor: Overview</h2>
-        <ul>
-            <li>⚡ <strong>Unit of computation</strong> inside a pipeline</li>
-            <li>📥 Receives arguments mapped from RDF via SHACL</li>
-            <li>📤 Produces outputs (RDF, JSON, etc.)</li>
-            <li>🛠 Can do anything from calling APIs to generic tasks like HTTP POST</li>
-            <li>🏗 The runner defines the implementation contract (abstract classes, interfaces, etc.)</li>
-        </ul>
-    </section>
-
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">RDF-Connect dive in: Logging</h2>
-        <p>
-            TODO: Explanation of how logging works
-        </p>
-    </section>
-
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">JavaScript Ecosystems</h2>
-        <ul style="font-size:1.1em; line-height:1.5;">
-            <li>⚡ Processor extends an abstract class</li>
-            <li>⚙️ Runner provides Readers & Writers to handle messages idiomatically</li>
-            <li>📦 Processors can be published to npm with their config</li>
-            <li>📥 Pipelines install processors via <code>npm install</code></li>
-        </ul>
-    </section>
-
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">Java Ecosystems</h2>
-        <ul style="font-size:1.1em; line-height:1.5;">
-            <li>⚡ Processor extends an abstract class</li>
-            <li>⚙️ Runner provides Readers & Writers to handle messages idiomatically</li>
-            <li>📦 Processors published via GitHub, included in fat jar with config</li>
-            <li>📥 Pipelines include Jitpack link in <code>build.gradle</code></li>
-        </ul>
-    </section>
-
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">RDF-Connect dive in: Python ecosystem</h2>
-        <p>
-            TODO: Overview and main links to resources
-        </p>
-    </section>
+<section id="arch14" class="slide" inlist="" rel="schema:hasPart" resource="#arch14">
+    <h2 property="schema:name">RDF-Connect dive in: Java ecosystem</h2>
+    <p>
+        TODO: Overview and main links to resources
+    </p>
+</section>
 
 <section id="recap_proc" class="slide index" inlist="" rel="schema:hasPart" resource="#recap_proc">
     <h2 property="schema:name" class="big">Finally! coffe break ☕</strong></h2>
@@ -430,30 +420,5 @@
 <script src="shower/shower.js"></script>
 <!-- Copyright © 2024 Yours Truly, Famous Inc. -->
 
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll('pre code[data-src]').forEach(async (block) => {
-                const src = block.getAttribute('data-src');
-                if (!src) return;
-
-                try {
-                    const response = await fetch(src);
-                    let code = await response.text();
-
-                    const lines = code.split("\n");
-
-                    code = lines.filter(x => !x.startsWith("@prefix")).join("\n");
-
-                    // Inject code and highlight
-                    block.textContent = code.trim();
-                    Prism.highlightElement(block);
-                } catch (err) {
-                    console.error(`Failed to load code from ${src}:`, err);
-                    block.textContent = `// Error loading code from ${src}`;
-                }
-            });
-        });
-    </script>
 </body>
 </html>
