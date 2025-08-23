@@ -58,22 +58,57 @@
     <ul>
         <li style="margin-top: 70px;"><strong>First part: Introduction to RDF-Connect (1:20h)</strong></li>
         <ul>
-            <li style="margin-left: 80px;">What are you going to do in this tutorial?</li>
-            <li style="margin-left: 80px;">Why RDF-Connect?</li>
-            <li style="margin-left: 80px;">RDF-Connect architecture & components</li>
+            <li style="margin-left: 80px;">What will we do in this tutorial? 🤔</li>
+            <li style="margin-left: 80px;">The what and why of RDF-Connect? 🎯</li>
+            <li style="margin-left: 80px;">RDF-Connect architecture & components ⚙️</li>
         </ul>
         <li style="margin-top: 10px;"><strong>Coffee break ☕ (10m)</strong></li>
         <li style="margin-top: 10px;"><strong>Second part: Hands-on (1:30h)</strong></li>
         <ul>
-            <li style="margin-left: 80px;">Implementing a processor</li>
-            <li style="margin-left: 80px;">Assembling a pipeline</li>
+            <li style="margin-left: 80px;">Implementing a processor 🏗️</li>
+            <li style="margin-left: 80px;">Assembling a pipeline 🔗</li>
         </ul>
         
     </ul>
 </section>
 
+<section id="why_tutorial" class="slide index" inlist="" rel="schema:hasPart" resource="#why_tutorial">
+    <h2 property="schema:name" class="big">What will we do in this tutorial? 🤔</strong></h2>
+</section>
+
+<section id="overview" class="slide" inlist="" rel="schema:hasPart" resource="#overview">
+    <h2 property="schema:name">Tutorial overview</h2>
+    <!--I want to create a layout in this slide with 2 rows, and the first row having 2 columns-->
+    <div style="display: flex; flex-direction: row; justify-content: space-around; margin-top: 20px;">
+        <div style="flex: 1; text-align: left; margin-right: 10px;">
+            <h4 style="margin: unset;">Part 1: Introduction to RDF-Connect</h4>
+            <p style="font-size: 12pt;">
+                You will learn the motivation behind RDF-Connect, its conceptual model and architecture,
+                by following a running example of a knowledge graph lifecycle pipeline. 
+            </p>
+        </div>
+        <div style="flex: 1; text-align: left; margin-left: 20px;">
+            <h4 style="margin: unset;">Part 2: Hands-on</h4>
+            <p style="font-size: 12pt;">
+                You will implement a ML-based processor and integrate it in the knowledge graph lifecycle pipeline. 
+            </p>
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: column; justify-content: space-around;">
+        <div style="text-align: center;">
+            <h4 style="margin: unset;">KG lifecycle pipeline</h4>
+            <p style="font-size: 12pt; text-align: left;">
+                A pipeline of a knowledge graph lifecycle process, where weather data (from an Austrian API service) will be collected, transformed into RDF, validated against a SHACL shape, enriched and published on a RDF graph store.
+            </p>
+            <div style="text-align: center">
+                <img src="img/fig-0.svg" style="width: 80%;" />
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="why_rdfc" class="slide index" inlist="" rel="schema:hasPart" resource="#why_rdfc">
-    <h2 property="schema:name" class="big">Why RDF-Connect?</strong></h2>
+    <h2 property="schema:name" class="big">The what and why of RDFC? 🎯</strong></h2>
 </section>
 
 <section id="motiv1" class="slide" inlist="" rel="schema:hasPart" resource="#motiv1">
@@ -98,23 +133,52 @@
 
 <section id="motiv3" class="slide" inlist="" rel="schema:hasPart" resource="#motiv3">
     <h2 property="schema:name">Pipelines are ubiqutous in real world systems</h2>
-    <p>
-        TODO: examples of pipelines in real world systems
-    </p>
+    <ul>
+        <li>- ETL pipelines for data warehousing</li>
+        <li>- Data integration pipelines for combining data from multiple sources</li>
+        <li>- Machine learning pipelines for training and deploying models</li>
+        <li>- Real-time data processing pipelines for streaming data</li>
+    </ul>
+    <div style="display: flex; flex-direction: row; justify-content: space-around;">
+        <img src="img/fig-3.png" style="width: 15%;" />
+        <img src="img/fig-4.jpg" style="width: 40%;" />
+        <img src="img/fig-5.jpg" style="width: 40%;" />
+    </div>
 </section>
 
 <section id="motiv4" class="slide" inlist="" rel="schema:hasPart" resource="#motiv4">
-    <h2 property="schema:name">Stream processing as a universal computational paradigm </h2>
-    <p>
-        TODO: Explain why stream processign
-    </p>
+    <h2 property="schema:name">Stream processing computational paradigm for continuos and dynamic data systems</h2>
+    <div style="display: flex; flex-direction: column; justify-content: space-around;">
+        <blockquote style="font-size: 14pt; font-style: italic; margin: 20px; border-left: 4px solid #ccc; padding-left: 10px;">
+            Traditional batch processing systems suffer from latency
+            problems due to the need to collect input data into batches
+            before it can be processed.
+            <cite style="display: block; margin-top: 10px; font-size: 12pt; text-align: right;">— Isah et al., A Survey of Distributed Data Stream Processing Frameworks, 2019</cite>
+        </blockquote>
+        <p style="font-size: 14pt;">
+            Current real-world data systems often require real-time or near-real-time processing of dynamic data.
+            Stream processing allows for the continuous ingestion and processing of data as it arrives, enabling timely insights and actions.
+        </p>
+        <div style="text-align: right; position: absolute; bottom: 0px; width: 100%; height: 140px;">
+            <img src="img/fig-6.png" style="width: 35%;">
+        </div>
+    </div>
 </section>
 
 <section id="motiv5" class="slide" inlist="" rel="schema:hasPart" resource="#motiv5">
     <h2 property="schema:name">Cross-environment execution: choosing the best of all worlds</h2>
-    <p>
-        TODO: Why cross-environment execution is needed
+    <p style="font-size: 14pt;">
+        The ability to execute applications written in different programming languages in an integrated manner offers several advantages:
     </p>
+    <ul style="font-size: 12pt;">
+        <li>- <strong>Flexibility:</strong> Developers can choose the most suitable language for each component of the application based on its strengths and capabilities.</li>
+        <li>- <strong>Code reuse:</strong> Existing libraries and frameworks can be leveraged, reducing development time and effort.</li>
+        <li>- <strong>Scalability:</strong> Components can be scaled independently based on their specific requirements, allowing for efficient resource utilization.</li>
+        <li>- <strong>Efficiency:</strong> Not all parts of an application require the same level of optimization.</li>
+    </ul>
+    <div style="text-align: center; position: absolute; bottom: 0px; width: 85%; height: 150px;">
+        <img src="img/fig-7.jpg" style="width: 35%;">
+    </div>
 </section>
 
 <section id="motiv6" class="slide" inlist="" rel="schema:hasPart" resource="#motiv6">
