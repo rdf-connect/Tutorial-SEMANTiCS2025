@@ -63,7 +63,7 @@ data-centric systems.
 
 {:#format}
 
-This tutorial is designed as a **full-day session** as outlined in [](#planning). It includes presentations of the
+This tutorial is designed as a **half-day session** as outlined in [](#planning). It includes presentations of the
 conceptual foundations of the RDFC framework and hands-on implementation.
 
 <figure id="planning" markdown="1" class="table">
@@ -89,4 +89,4 @@ conceptual overview to hands-on development.
 
 The **first session** start by providing an overview of the tutorial’s content and a description of the pipeline, participants will build throughout the day. Then, the motivation and rationale of RDFC will be presented, together with its high level architecture.
 
-The **second session** is primarily hands-on, focusing on (i) _processor development_: participants will learn to implement a processor in a language of choice and configure it for pipeline integration. Concretely, the participants will implement a processor that transforms a stream of RDF triples based on a configured language translation, bu leveraging a lightweight ML model to perform the translations locally; and (ii) _pipeline assembly_: participants will construct a working streaming pipeline, using both existing and the participant's custom-built processor, that pulls data, applies transformations, validates and publishes the results to a triple store.
+The **second session** is primarily hands-on, focusing on (i) _processor development_: participants will learn to implement a processor in a language of choice and configure it for pipeline integration. Concretely, the participants will implement a processor that transforms a stream of RDF triples based on a configured language translation, by leveraging a lightweight ML model to perform the translations locally; and (ii) _pipeline assembly_: participants will construct a working streaming pipeline, using both existing and the participant's custom-built processor, that pulls data, applies transformations, validates and publishes the results to a triple store.
