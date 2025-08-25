@@ -1,216 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Building Streaming and Cross-Environment Data Processing Pipelines with RDF-Connect</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-turtle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-gradle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-bash.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
-
     <link rel="stylesheet" href="shower/themes/material/styles/styles.css">
     <link rel="stylesheet" href="styles/custom.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css' />
     <style>
         .shower {
             --slide-ratio: calc(16 / 9);
         }
     </style>
 
-    <link rel="foaf:maker" href="https://solid.smessie.com/profile/card#me"/>
+    <link rel="foaf:maker" href="https://solid.smessie.com/profile/card#me" />
 </head>
+
 <body class="shower list"
-      prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# foaf: http://xmlns.com/foaf/0.1/ owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# org: http://www.w3.org/ns/org# schema: http://schema.org/ cite: http://purl.org/spar/cito/"
-      typeof="schema:PresentationDigitalDocument">
+    prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# foaf: http://xmlns.com/foaf/0.1/ owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# org: http://www.w3.org/ns/org# schema: http://schema.org/ cite: http://purl.org/spar/cito/"
+    typeof="schema:PresentationDigitalDocument">
 
-<header class="caption">
-    <h1 property="schema:name">Building Streaming and Cross-Environment Data Processing Pipelines with RDF-Connect</h1>
-    <div class="captiondata">
-        <p class="author" rel="schema:author">
-            <a href="https://smessaert.be">Ieben Smessaert</a>,
-            <a href="#">Arthur Vercruysse</a>,
-            <a href="https://julianrojas.org/">Julián Rojas Meléndez</a>,
-            <a href="https://pietercolpaert.be">Pieter Colpaert</a>,
-        </p>
-        <p class="venue">
-            <a href="https://2025-eu.semantics.cc/page/cfp_ws">SEMANTiCS 2025</a>, <span
-                rel="schema:datePublished">September 3-5, 2025</span>
-        </p>
-    </div>
-</header>
-
-<section id="title" class="slide title" inlist="" rel="schema:hasPart" resource="#title">
-    <h2 property="schema:name" style="font-size: 2.5em">Building Streaming and Cross-Environment Data Processing
-        Pipelines with <strong>RDF-Connect</strong></h2>
-    <ul class="author inline">
-        <li><a href="https://smessaert.be">Ieben Smessaert</a></li>
-        <li><a href="#">Arthur Vercruysse</a></li>
-        <li><a href="https://julianrojas.org/">Julián Rojas Meléndez</a></li>
-        <li><a href="https://pietercolpaert.be">Pieter Colpaert</a></li>
-    </ul>
-    <p class="affiliation"><a href="https://idlab.technology/">Ghent University – imec – IDLab, Belgium</a></p>
-    <h3>Tutorial Website: <a href="">TODO</a></h3>
-    <p>
-        <a href="https://2025-eu.semantics.cc/page/accepted_workshops_tutorials">SEMANTiCS 2025</a>,
-        <span rel="schema:datePublished">September 3, 2025</span>
-    </p>
-</section>
-
-<section id="agenda" class="slide" inlist="" rel="schema:hasPart" resource="#agenda">
-    <h2 property="schema:name" class="big" style="margin-top: 20px">Agenda</h2>
-    <ul>
-        <li style="margin-top: 70px;"><strong>First part: Introduction to RDF-Connect (1:20h)</strong></li>
-        <ul>
-            <li style="margin-left: 80px;">What will we do in this tutorial? 🤔</li>
-            <li style="margin-left: 80px;">The what and why of RDF-Connect? 🎯</li>
-            <li style="margin-left: 80px;">RDF-Connect architecture & components ⚙️</li>
-        </ul>
-        <li style="margin-top: 10px;"><strong>Coffee break ☕ (10m)</strong></li>
-        <li style="margin-top: 10px;"><strong>Second part: Hands-on (1:30h)</strong></li>
-        <ul>
-            <li style="margin-left: 80px;">Implementing a processor 🏗️</li>
-            <li style="margin-left: 80px;">Assembling a pipeline 🔗</li>
-        </ul>
-    </ul>
-</section>
-
-<section id="why_tutorial" class="slide index" inlist="" rel="schema:hasPart" resource="#why_tutorial">
-    <h2 property="schema:name" class="big">What will we do in this tutorial? 🤔</strong></h2>
-</section>
-
-<section id="overview" class="slide" inlist="" rel="schema:hasPart" resource="#overview">
-    <h2 property="schema:name">Tutorial overview</h2>
-    <!--I want to create a layout in this slide with 2 rows, and the first row having 2 columns-->
-    <div style="display: flex; flex-direction: row; justify-content: space-around; margin-top: 20px;">
-        <div style="flex: 1; text-align: left; margin-right: 10px;">
-            <h4 style="margin: unset;">Part 1: Introduction to RDF-Connect</h4>
-            <p style="font-size: 12pt;">
-                You will learn the motivation behind RDF-Connect, its conceptual model and architecture,
-                by following a running example of a knowledge graph lifecycle pipeline. 
+    <header class="caption">
+        <h1 property="schema:name">Building Streaming and Cross-Environment Data Processing Pipelines with RDF-Connect
+        </h1>
+        <div class="captiondata">
+            <p class="author" rel="schema:author">
+                <a href="https://smessaert.be">Ieben Smessaert</a>,
+                <a href="#">Arthur Vercruysse</a>,
+                <a href="https://julianrojas.org/">Julián Rojas Meléndez</a>,
+                <a href="https://pietercolpaert.be">Pieter Colpaert</a>,
+            </p>
+            <p class="venue">
+                <a href="https://2025-eu.semantics.cc/page/cfp_ws">SEMANTiCS 2025</a>, <span
+                    rel="schema:datePublished">September 3-5, 2025</span>
             </p>
         </div>
-        <div style="flex: 1; text-align: left; margin-left: 20px;">
-            <h4 style="margin: unset;">Part 2: Hands-on</h4>
-            <p style="font-size: 12pt;">
-                You will implement a ML-based processor and integrate it in the knowledge graph lifecycle pipeline. 
-            </p>
-        </div>
-    </div>
-    <div style="display: flex; flex-direction: column; justify-content: space-around;">
-        <div style="text-align: center;">
-            <h4 style="margin: unset;">KG lifecycle pipeline</h4>
-            <p style="font-size: 12pt; text-align: left;">
-                A pipeline of a knowledge graph lifecycle process, where weather data (from an Austrian API service) will be collected, transformed into RDF, validated against a SHACL shape, enriched and published on a RDF graph store.
-            </p>
-            <div style="text-align: center">
-                <img src="img/fig-0.svg" style="width: 80%;" />
+    </header>
+
+    <section id="title" class="slide title" inlist="" rel="schema:hasPart" resource="#title">
+        <h2 property="schema:name" style="font-size: 2.5em">Building Streaming and Cross-Environment Data Processing
+            Pipelines with <strong>RDF-Connect</strong></h2>
+        <ul class="author inline">
+            <li><a href="https://smessaert.be">Ieben Smessaert</a></li>
+            <li><a href="#">Arthur Vercruysse</a></li>
+            <li><a href="https://julianrojas.org/">Julián Rojas Meléndez</a></li>
+            <li><a href="https://pietercolpaert.be">Pieter Colpaert</a></li>
+        </ul>
+        <p class="affiliation"><a href="https://idlab.technology/">Ghent University – imec – IDLab, Belgium</a></p>
+        <h3>Tutorial Website: <a href="">TODO</a></h3>
+        <p>
+            <a href="https://2025-eu.semantics.cc/page/accepted_workshops_tutorials">SEMANTiCS 2025</a>,
+            <span rel="schema:datePublished">September 3, 2025</span>
+        </p>
+    </section>
+
+    <section id="agenda" class="slide" inlist="" rel="schema:hasPart" resource="#agenda">
+        <h2 property="schema:name" class="big" style="margin-top: 20px">Agenda</h2>
+        <ul>
+            <li style="margin-top: 70px;"><strong>First part: Introduction to RDF-Connect (1:20h)</strong></li>
+            <ul>
+                <li style="margin-left: 80px;">What will we do in this tutorial? 🤔</li>
+                <li style="margin-left: 80px;">The what and why of RDF-Connect? 🎯</li>
+                <li style="margin-left: 80px;">RDF-Connect architecture & components ⚙️</li>
+            </ul>
+            <li style="margin-top: 10px;"><strong>Coffee break ☕ (10m)</strong></li>
+            <li style="margin-top: 10px;"><strong>Second part: Hands-on (1:30h)</strong></li>
+            <ul>
+                <li style="margin-left: 80px;">Implementing a processor 🏗️</li>
+                <li style="margin-left: 80px;">Assembling a pipeline 🔗</li>
+            </ul>
+
+        </ul>
+    </section>
+
+    <section id="why_tutorial" class="slide index" inlist="" rel="schema:hasPart" resource="#why_tutorial">
+        <h2 property="schema:name" class="big">What will we do in this tutorial? 🤔</strong></h2>
+    </section>
+
+    <section id="overview" class="slide" inlist="" rel="schema:hasPart" resource="#overview">
+        <h2 property="schema:name">Tutorial overview</h2>
+        <!--I want to create a layout in this slide with 2 rows, and the first row having 2 columns-->
+        <div style="display: flex; flex-direction: row; justify-content: space-around; margin-top: 20px;">
+            <div style="flex: 1; text-align: left; margin-right: 10px;">
+                <h4 style="margin: unset;">Part 1: Introduction to RDF-Connect</h4>
+                <p style="font-size: 12pt;">
+                    You will learn the motivation behind RDF-Connect, its conceptual model and architecture,
+                    by following a running example of a knowledge graph lifecycle pipeline.
+                </p>
+            </div>
+            <div style="flex: 1; text-align: left; margin-left: 20px;">
+                <h4 style="margin: unset;">Part 2: Hands-on</h4>
+                <p style="font-size: 12pt;">
+                    You will implement a ML-based processor and integrate it in the knowledge graph lifecycle pipeline.
+                </p>
             </div>
         </div>
-    </div>
-</section>
-
-<section id="why_rdfc" class="slide index" inlist="" rel="schema:hasPart" resource="#why_rdfc">
-    <h2 property="schema:name" class="big">The what and why of RDFC? 🎯</strong></h2>
-</section>
-
-<section id="motiv1" class="slide" inlist="" rel="schema:hasPart" resource="#motiv1">
-    <h2 property="schema:name">Data processing pipelines are crucial in modern data-centric systems</h2>
-    <p>
-        They enable the transformation, integration, and analysis of data from and to various sources and targets.
-    </p>
-    <div style="text-align: center">
-        <img src="img/fig-1.svg" style="width: 80%;" />
-    </div>
-</section>
-
-<section id="motiv2" class="slide" inlist="" rel="schema:hasPart" resource="#motiv1">
-    <h2 property="schema:name">Pipelines are usually composed of multiple complex tasks</h2>
-    <p>
-        However, building, managing and reusing these pipelines can be complex and challenging.
-    </p>
-    <div style="text-align: center">
-        <img src="img/fig-2.svg" style="width: 60%;" />
-    </div>
-</section>
-
-<section id="motiv3" class="slide" inlist="" rel="schema:hasPart" resource="#motiv3">
-    <h2 property="schema:name">Pipelines are ubiqutous in real world systems</h2>
-    <ul>
-        <li>- ETL pipelines for data warehousing</li>
-        <li>- Data integration pipelines for combining data from multiple sources</li>
-        <li>- Machine learning pipelines for training and deploying models</li>
-        <li>- Real-time data processing pipelines for streaming data</li>
-    </ul>
-    <div style="display: flex; flex-direction: row; justify-content: space-around;">
-        <img src="img/fig-3.png" style="width: 15%;" />
-        <img src="img/fig-4.jpg" style="width: 40%;" />
-        <img src="img/fig-5.jpg" style="width: 40%;" />
-    </div>
-</section>
-
-<section id="motiv4" class="slide" inlist="" rel="schema:hasPart" resource="#motiv4">
-    <h2 property="schema:name">Stream processing computational paradigm for continuos and dynamic data systems</h2>
-    <div style="display: flex; flex-direction: column; justify-content: space-around;">
-        <blockquote style="font-size: 14pt; font-style: italic; margin: 20px; border-left: 4px solid #ccc; padding-left: 10px;">
-            Traditional batch processing systems suffer from latency
-            problems due to the need to collect input data into batches
-            before it can be processed.
-            <cite style="display: block; margin-top: 10px; font-size: 12pt; text-align: right;">— Isah et al., A Survey of Distributed Data Stream Processing Frameworks, 2019</cite>
-        </blockquote>
-        <p style="font-size: 14pt;">
-            Current real-world data systems often require real-time or near-real-time processing of dynamic data.
-            Stream processing allows for the continuous ingestion and processing of data as it arrives, enabling timely insights and actions.
-        </p>
-        <div style="text-align: right; position: absolute; bottom: 0px; width: 100%; height: 140px;">
-            <img src="img/fig-6.png" style="width: 35%;">
+        <div style="display: flex; flex-direction: column; justify-content: space-around;">
+            <div style="text-align: center;">
+                <h4 style="margin: unset;">KG lifecycle pipeline</h4>
+                <p style="font-size: 12pt; text-align: left;">
+                    A pipeline of a knowledge graph lifecycle process, where weather data (from an Austrian API service)
+                    will be collected, transformed into RDF, validated against a SHACL shape, enriched and published on
+                    a RDF graph store.
+                </p>
+                <div style="text-align: center">
+                    <img src="img/fig-0.svg" style="width: 80%;" />
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="motiv5" class="slide" inlist="" rel="schema:hasPart" resource="#motiv5">
-    <h2 property="schema:name">Cross-environment execution: choosing the best of all worlds</h2>
-    <p style="font-size: 14pt;">
-        The ability to execute applications written in different programming languages in an integrated manner offers several advantages:
-    </p>
-    <ul style="font-size: 12pt;">
-        <li>- <strong>Flexibility:</strong> Developers can choose the most suitable language for each component of the application based on its strengths and capabilities.</li>
-        <li>- <strong>Code reuse:</strong> Existing libraries and frameworks can be leveraged, reducing development time and effort.</li>
-        <li>- <strong>Scalability:</strong> Components can be scaled independently based on their specific requirements, allowing for efficient resource utilization.</li>
-        <li>- <strong>Efficiency:</strong> Not all parts of an application require the same level of optimization.</li>
-    </ul>
-    <div style="text-align: center; position: absolute; bottom: 0px; width: 85%; height: 150px;">
-        <img src="img/fig-7.jpg" style="width: 35%;">
-    </div>
-</section>
+    <section id="why_rdfc" class="slide index" inlist="" rel="schema:hasPart" resource="#why_rdfc">
+        <h2 property="schema:name" class="big">The what and why of RDFC? 🎯</strong></h2>
+    </section>
 
-<section id="motiv6" class="slide" inlist="" rel="schema:hasPart" resource="#motiv6">
-    <h2 property="schema:name">Declarative, reusable and provenance-aware data processing</h2>
-    <p>
-        TODO: Explain why declarative and provenance-aware data processing is needed
-    </p>
-</section>
+    <section id="motiv1" class="slide" inlist="" rel="schema:hasPart" resource="#motiv1">
+        <h2 property="schema:name">Data processing pipelines are crucial in modern data-centric systems</h2>
+        <p>
+            They enable the transformation, integration, and analysis of data from and to various sources and targets.
+        </p>
+        <div style="text-align: center">
+            <img src="img/fig-1.svg" style="width: 80%;" />
+        </div>
+    </section>
 
-<section id="motiv7" class="slide" inlist="" rel="schema:hasPart" resource="#motiv7">
-    <h2 property="schema:name">RDF-Connect requirements overview</h2>
-    <p>
-        TODO: Diagram with requirements overview (as in the pyramid used in the ISWC paper slides)
-    </p>
-</section>
+    <section id="motiv2" class="slide" inlist="" rel="schema:hasPart" resource="#motiv1">
+        <h2 property="schema:name">Pipelines are usually composed of multiple complex tasks</h2>
+        <p>
+            However, building, managing and reusing these pipelines can be complex and challenging.
+        </p>
+        <div style="text-align: center">
+            <img src="img/fig-2.svg" style="width: 60%;" />
+        </div>
+    </section>
 
-<section id="motiv7" class="slide" inlist="" rel="schema:hasPart" resource="#motiv7">
-    <h2 property="schema:name">Aren't there like a million pipeline frameworks already?</h2>
-    <p>
-        TODO: Table with most prominent frameworks and their feature support
-    </p>
-    <p>
-        TODO: Deeper explanation and differentiation with CWL
-    </p>
-</section>
+    <section id="motiv3" class="slide" inlist="" rel="schema:hasPart" resource="#motiv3">
+        <h2 property="schema:name">Pipelines are ubiqutous in real world systems</h2>
+        <ul>
+            <li>- ETL pipelines for data warehousing</li>
+            <li>- Data integration pipelines for combining data from multiple sources</li>
+            <li>- Machine learning pipelines for training and deploying models</li>
+            <li>- Real-time data processing pipelines for streaming data</li>
+        </ul>
+        <div style="display: flex; flex-direction: row; justify-content: space-around;">
+            <img src="img/fig-3.png" style="width: 15%;" />
+            <img src="img/fig-4.jpg" style="width: 40%;" />
+            <img src="img/fig-5.jpg" style="width: 40%;" />
+        </div>
+    </section>
+
+    <section id="motiv4" class="slide" inlist="" rel="schema:hasPart" resource="#motiv4">
+        <h2 property="schema:name">Stream processing computational paradigm for continuos and dynamic data systems</h2>
+        <div style="display: flex; flex-direction: column; justify-content: space-around;">
+            <blockquote
+                style="font-size: 14pt; font-style: italic; margin: 20px; border-left: 4px solid #ccc; padding-left: 10px;">
+                Traditional batch processing systems suffer from latency
+                problems due to the need to collect input data into batches
+                before it can be processed.
+                <cite style="display: block; margin-top: 10px; font-size: 12pt; text-align: right;">— Isah, H., et al., A
+                    Survey of Distributed Data Stream Processing Frameworks, IEEE Access, 2019
+                </cite>
+            </blockquote>
+            <p style="font-size: 14pt;">
+                Current real-world data systems often require real-time or near-real-time processing of dynamic data.
+                Stream processing allows for the continuous ingestion and processing of data as it arrives, enabling
+                timely insights and actions.
+            </p>
+            <div style="text-align: right; position: absolute; bottom: 0px; width: 100%; height: 140px;">
+                <img src="img/fig-6.png" style="width: 35%;">
+            </div>
+        </div>
+    </section>
+
+    <section id="motiv5" class="slide" inlist="" rel="schema:hasPart" resource="#motiv5">
+        <h2 property="schema:name">Cross-environment execution: choosing the best of all worlds</h2>
+        <p style="font-size: 14pt;">
+            The ability to execute applications written in different programming languages in an integrated manner
+            offers several advantages:
+        </p>
+        <ul style="font-size: 12pt;">
+            <li>- <strong>Flexibility:</strong> Developers can choose the most suitable language for each component of
+                the application based on its strengths and capabilities.</li>
+            <li>- <strong>Code reuse:</strong> Existing libraries and frameworks can be leveraged, reducing development
+                time and effort.</li>
+            <li>- <strong>Scalability:</strong> Components can be scaled independently based on their specific
+                requirements, allowing for efficient resource utilization.</li>
+            <li>- <strong>Efficiency:</strong> Not all parts of an application require the same level of optimization.
+            </li>
+        </ul>
+        <div style="text-align: center; position: absolute; bottom: 0px; width: 85%; height: 150px;">
+            <img src="img/fig-7.jpg" style="width: 35%;">
+        </div>
+    </section>
+
+    <section id="motiv6" class="slide" inlist="" rel="schema:hasPart" resource="#motiv6">
+        <h2 property="schema:name">Declarative, reusable and provenance-aware data processing</h2>
+        <div style="display: flex; flex-direction: column; justify-content: space-around;">
+            <blockquote style="font-size: 12pt; font-style: italic; margin: 10px; border-left: 4px solid #ccc; padding-left: 10px;">
+                Scientists want to use provenance data to answer questions such as: Which data items were involved in the generation of a given partial result? or Did this actor employ outputs from one of these two other actors?
+                <cite style="display: block; margin-top: 10px; font-size: 12pt; text-align: right;">
+                    — Cuevas-Vicentin, V., et al., <strong>Scientific Workflows and Provenance: Introduction and Research Opportunities</strong>, Datenbank Spektrum, 2012
+                </cite>
+            </blockquote>
+            <blockquote style="font-size: 12pt; font-style: italic; margin: 10px; border-left: 4px solid #ccc; padding-left: 10px;">
+                Provenance is instrumental to activities such as traceability, reproducibility, accountability, and quality assessment.
+                <cite style="display: block; margin-top: 10px; font-size: 12pt; text-align: right;">
+                    — Herschel, M., et al., <strong>A Survey on Provenance: What for? What form? What from?</strong>, VLDB, 2017
+                </cite>
+            </blockquote>
+            <blockquote style="font-size: 12pt; font-style: italic; margin: 10px; border-left: 4px solid #ccc; padding-left: 10px;">
+                Prospective provenance—the execution plan—is essentially the workflow itself: it includes a machine-readable specification with the processing steps to be performed and the data and software dependencies to carry out each computation.
+                <cite style="display: block; margin-top: 10px; font-size: 12pt; text-align: right;">
+                    — Simone, L., et al., <strong>Recording provenance of workflow runs with RO-Crate</strong>, PLoS ONE, 2024
+                </cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <section id="motiv7" class="slide" inlist="" rel="schema:hasPart" resource="#motiv7">
+        <h2 property="schema:name">RDF-Connect requirements overview</h2>
+        <div style="text-align: center">
+            <img src="img/fig-8.svg" style="width: 95%;" />
+        </div>
+    </section>
+
+    <section id="motiv8" class="slide" inlist="" rel="schema:hasPart" resource="#motiv8">
+        <h2 property="schema:name">Aren't there like a million pipeline frameworks already?</h2>
+        <div style="text-align: center">
+            <img src="img/fig-9.svg" style="width: 95%;" />
+        </div>
+    </section>
+
+    <section id="motiv9" class="slide" inlist="" rel="schema:hasPart" resource="#motiv9">
+        <h2 property="schema:name">Aren't there like a million pipeline frameworks already?</h2>
+        <div style="display: flex; flex-direction: row; justify-content: space-around; gap: 20px; margin-top: 20px;">
+            <iframe src="https://workflows.community/systems" style="width: 90%; height: 400px; border: 1px solid #ccc;" title="Example 1"></iframe>
+        </div>
+    </section>
+
+    <section id="motiv10" class="slide" inlist="" rel="schema:hasPart" resource="#motiv10">
+        <h2 property="schema:name">Aren't there like a million pipeline frameworks already?</h2>
+        <div style="text-align: center">
+            <img src="img/fig-10.svg" style="width: 100%;" />
+        </div>
+        <div style="font-size: 17px; display: flex; flex-direction: column; justify-content: space-around;">
+            <a style="border: none;" href="https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems" target="_blank">https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems</a>
+            <a style="border: none;" href="https://github.com/pditommaso/awesome-pipeline" target="_blank">https://github.com/pditommaso/awesome-pipeline</a>
+        </div>
+    </section>
+
+    <section id="motiv11" class="slide" inlist="" rel="schema:hasPart" resource="#motiv11">
+        <h2 property="schema:name">A worthy mention: Common Workflow Language</h2>
+        <div style="display: flex; flex-direction: row; justify-content: space-around; gap: 20px; margin-top: 20px;">
+            <img src="img/fig-11.svg" style="width: 20%;" />
+            <p style="font-size: 14pt; flex: 1; text-align: left; margin-top: 15px;">
+                Common Workflow Language (CWL) is an open standard for describing how to run command line tools and connect them to create workflows.
+            </p>
+        </div>
+        <div style="text-align: center">
+            <img src="img/fig-12.svg" style="width: 75%;" />
+        </div>
+    </section>
+
+    <section id="motiv12" class="slide" inlist="" rel="schema:hasPart" resource="#motiv12">
+        <h2 property="schema:name">How is RDF-Connect different from CWL?</h2>
+        <table style="width: 100%; margin-left: 0; border-collapse: collapse; margin-top: 10px; font-size: 12pt; text-align: left;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9;">Feature</th>
+                    <th style="border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9;">RDF-Connect</th>
+                    <th style="border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9;">CWL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Streaming</td>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Supports both batch and streaming via gRPC streams</td>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Primarily batch-oriented, although implmentation-dependent streaming can be supported (e.g,. using named pipes)</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Polyglot</td>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Supports any language through an <i>add-in libraries</i> approach</td>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Can accomodate polylingual workflows via POSIX CLI interfaces</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Provenance</td>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Built-in prospective and retrospective provenance tracking based on PROV-O</td>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Provenance extension available (<a href="https://github.com/common-workflow-language/cwlprov" target="_blank">CWLProv</a>) based on PROV-O</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Schema expressivity</td>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Full SHACL-based expressivity</td>
+                    <td style="border: 1px solid #ccc; padding: 10px;">Set of defined types and limited constraint definitions</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
     <section id="rdfc_arch" class="slide index" inlist="" rel="schema:hasPart" resource="#rdfc_arch">
         <h2 property="schema:name" sclass="big">RDF-Connect architecture & components</strong></h2>
@@ -229,7 +319,7 @@
         </ul>
 
         <div style="text-align: center">
-            <img src="img/RunningExample.svg" style="width: 80%;" />
+            <img src="img/RunningExample-light.svg" style="width: 80%;" />
         </div>
     </section>
 
@@ -256,7 +346,7 @@
     <section class="slide" inlist="" rel="schema:hasPart">
         <h2 property="schema:name">Pipeline design of running example</h2>
         <div class="cover place center" style="width: 70%">
-            <img src="img/ArchitectureOverview.svg" style="width: 100%;" />
+            <img src="img/ArchitectureOverview-light.svg" style="width: 100%;" />
         </div>
     </section>
 
@@ -277,7 +367,7 @@
 
             </div>
             <div style="flex: 1; text-align: center;">
-                <img src="img/PipelineFile.svg" style="width: 80%;" />
+                <img src="img/PipelineFile-light.svg" style="width: 80%;" />
             </div>
         </div>
     </section>
@@ -397,12 +487,27 @@
         </ul>
     </section>
 
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">RDF-Connect dive in: Logging</h2>
-        <p>
-            TODO: Explanation of how logging works
-        </p>
-    </section>
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Deep Dive: Centralized Logging</h2>
+
+  <ul>
+    <li>📊 <strong>One place for all logs</strong><br>
+        The orchestrator aggregates logs from every runner and processor.</li>
+
+    <li>🧩 <strong>Idiomatic in every language</strong><br>
+        Keep using your ecosystem’s standard logger; runners forward those logs to the orchestrator.</li>
+
+    <li>🎯 <strong>Targeted DEBUG</strong><br>
+        Show debug output only for a specific component by using its name from the pipeline descriptor.<br>
+        <span style="font-size:0.95em;">
+          Example (bash): <strong><code>DEBUG=:fetcher npx rdfc pipeline.ttl</code></strong>
+        </span><br>
+    </li>
+
+    <li>🔉 <strong>Sensible defaults</strong><br>
+        Info and errors are shown by default; <code>debug</code> is opt-in via <code>DEBUG</code>.</li>
+  </ul>
+</section>
 
     <section class="slide" inlist="" rel="schema:hasPart">
         <h2 property="schema:name">JavaScript Ecosystems</h2>
@@ -431,268 +536,76 @@
         </p>
     </section>
 
-<section id="recap_proc" class="slide index" inlist="" rel="schema:hasPart" resource="#recap_proc">
-    <h2 property="schema:name" class="big">Finally! coffe break ☕</strong></h2>
-</section>
+    <section id="recap_proc" class="slide index" inlist="" rel="schema:hasPart" resource="#recap_proc">
+        <h2 property="schema:name" class="big">Finally! coffe break ☕</strong></h2>
+    </section>
 
-<section id="hello_world" class="slide index" inlist="" rel="schema:hasPart" resource="#hellow_world">
-    <h2 property="schema:name" class="big">Let's run a pipeline!</strong></h2>
-</section>
+    <section id="hello_world" class="slide index" inlist="" rel="schema:hasPart" resource="#hellow_world">
+        <h2 property="schema:name" class="big">Let's run a pipeline!</strong></h2>
+    </section>
 
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Hands-On Pipelines</h2>
-
-  <ol>
-    <li>📂 <strong>Pipeline 1:</strong> HTTP Fetch → Log contents</li>
-    <li>🌦️ <strong>Pipeline 2:</strong> Weather API → RDF → Validation → Publish</li>
-    <li>🤖 <strong>Step 3:</strong> Implement your own ML processor in Python</li>
-    <li>🌦️ <strong>Pipeline 3:</strong> Weather API → RDF → Translation → Validation → Publish</li>
-  </ol>
-
-    <p>
-        Follow allong in the GitHub repository.<br>
-        Each branch is a task or a step in the tasks!<br>
-        <a href=https://github.com/rdf-connect/vienna-weather-forecast-kg-pipeline>github.com/rdf-connect/vienna-weather-forecast-kg-pipeline</a>
-    </p>
-</section>
-
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Pipeline 1: File → Log</h2>
-
-  <div style="text-align:center; margin-top:2rem;">
-    <img src="img/pipeline1.svg" style="max-width:80%;" alt="Pipeline 1 Diagram">
-  </div>
-            <p>
-                Follow along on branch tbd.
-            </p>
-</section>
-
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Pipeline 1: Setup</h2>
-
-  <p style="font-size:1.2em;">Install the orchestrator and processors:</p>
-
-  <pre><code class="language-bash" data-trim>
-npm install @rdfc/orchestrator-js
-npm install @rdfc/http-utils-processor-ts
-npm install @rdfc/log-processor-ts
-  </code></pre>
-
-  <div style="font-size:0.9em; margin-top:1em;">
-    🛠️ The <strong>log processor</strong> is also available in <em>Python</em> and <em>Java</em>.<br>
-    You can swap it to see cross-language interoperability in action!
-  </div>
-</section>
-
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Pipeline 1: Configuration</h2>
-
-      <pre><code  style="font-size:0.5em; line-height:1.6;" class="language-turtle" data-trim data-noformat>
-@prefix rdfc: &lt;https://w3id.org/rdf-connect#&gt;.
-@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt;.
-      </code></pre>
-  <div style="display:flex; gap:2rem">
-    <!-- Left column -->
-    <div style="flex:1;">
-            <pre><code style="font-size:0.5em; line-height:1.6;" id="runner-snippet" class="language-turtle"
-                    data-src="code/pipeline-1.1.ttl"></code></pre>
-    </div>
-
-    <!-- Right column -->
-    <div style="flex:1;">
-            <pre><code style="font-size:0.5em; line-height:1.6;" id="runner-snippet" class="language-turtle"
-                    data-src="code/pipeline-1.2.ttl"></code></pre>
-    </div>
-  </div>
-</section>
-
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Pipeline 1: Run the Pipeline</h2>
-
-  <p style="font-size:1.2em;">Start the orchestrator with the configuration file:</p>
-
-  <pre><code class="language-bash" data-trim>
-npx rdfc pipeline.ttl
-  </code></pre>
-
-  <div style="margin-top:2rem; text-align:center;">
-    ✅ You should see the HTTP contents being logged.  
-  </div>
-</section>
-
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Hands-On Pipelines</h2>
-
-  <ol>
-    <li>📂 <strong>Pipeline 1:</strong> HTTP Fetch → Log contents</li>
-    <li>🌦️ <strong>Pipeline 2:</strong> Weather API → RDF → Validation → Publish</li>
-    <li>🤖 <strong>Step 3:</strong> Implement your own ML processor in Python</li>
-    <li>🌦️ <strong>Pipeline 3:</strong> Weather API → RDF → Translation → Validation → Publish</li>
-  </ol>
-
-    <p>
-        Follow allong in the GitHub repository.<br>
-        Each branch is a task or a step in the tasks!<br>
-        <a href=https://github.com/rdf-connect/vienna-weather-forecast-kg-pipeline>github.com/rdf-connect/vienna-weather-forecast-kg-pipeline</a>
-    </p>
-</section>
-
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Pipeline 2: Weather API</h2>
-
-  <div style="text-align:center; margin-top:2rem;">
-    <img src="img/pipeline2.svg" style="max-width:80%;" alt="Pipeline 2 Diagram">
-  </div>
-    <p>
-        Follow along on branch tbd.
-    </p>
-</section>
-
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Weather API Pipeline: JavaScript Setup</h2>
-
-  <p style="font-size:1.2em;">Install the orchestrator and required processors:</p>
-
-  <pre><code class="language-bash" data-trim>
-npm install @rdfc/file-utils-processors-ts
-npm install @rdfc/shacl-processor-ts
-npm install @rdfc/sparql-ingest-processor-ts
-  </code></pre>
-</section>
-
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Weather API Pipeline: Java Setup</h2>
-
-  <p style="font-size:1.2em;">Add the required dependency to your Gradle build file:</p>
-
-<div style="display:flex; gap:2rem">
-
-    <div style="flex:1;">
-  <pre><code style="font-size:0.5em;" class="language-gradle" data-trim>
-plugins { id 'java' }
-repositories {
-    mavenCentral()
-    maven { url = uri("https://jitpack.io") }
-}
-dependencies {
-    implementation("com.github.rdf-connect:rml-processor-jvm:master-SNAPSHOT:all")
-}
-tasks.register('copyPlugins', Copy) {
-    from configurations.runtimeClasspath
-    into "$buildDir/plugins"
-}
-    </code></pre>
-    </div>
-    <div style="flex:1; font-size:0.7em">
+    <section id="proc1" class="slide" inlist="" rel="schema:hasPart" resource="#proc1">
+        <h2 property="schema:name">Description of the exercise pipeline without translation</h2>
         <p>
-        Install jars with<br><em>gradle copyPlugins</em>.
+            TODO: Describe the pipeline and how to run it
         </p>
+    </section>
+
+    <section id="recap_proc" class="slide index" inlist="" rel="schema:hasPart" resource="#recap_proc">
+        <h2 property="schema:name" class="big">How to implement a processor?</strong></h2>
+    </section>
+
+    <section id="proc1" class="slide" inlist="" rel="schema:hasPart" resource="#proc1">
+        <h2 property="schema:name">Recap of a processor structure</h2>
         <p>
-        The jvm-runner downloads the jvm-runner itselve, no installing required.
+            TODO: Internal code structure (init and operational methods)
         </p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Pipeline 1: Run the Pipeline</h2>
+    <section id="proc2" class="slide" inlist="" rel="schema:hasPart" resource="#proc2">
+        <h2 property="schema:name">Hands-on: Build your own processor</h2>
+        <p>
+            TODO: Describe the goal and Link to the step-by-step guide
+        </p>
+    </section>
 
-  <p style="font-size:1.2em;">Start the orchestrator with the configuration file:</p>
+    <section id="recap_pipl" class="slide index" inlist="" rel="schema:hasPart" resource="#recap_pipl">
+        <h2 property="schema:name" class="big">Let's rerun the pipeline with your processor</strong></h2>
+    </section>
 
-  <pre><code class="language-bash" data-trim>
-npx rdfc pipeline.ttl
-  </code></pre>
+    <section id="pipe2" class="slide" inlist="" rel="schema:hasPart" resource="#pipe2">
+        <h2 property="schema:name">Bringing all together</h2>
+        <p>
+            TODO: How to include the created processor in the previous hands-on into the pipeline descriptor?
+        </p>
+    </section>
 
-  <div style="margin-top:2rem; text-align:center;">
-    Don't forget to start a SPARQL endpoint.
-  </div>
-</section>
+    <section id="pipe4" class="slide" inlist="" rel="schema:hasPart" resource="#pipe4">
+        <h2 property="schema:name">Hands-on: Let's run a pipeline</h2>
+        <p>
+            TODO: Link to the step-by-step guide
+        </p>
+    </section>
 
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Hands-On Pipelines</h2>
+    <footer>
+        <p class="license">
+            &#169; <span property="schema:copyrightYear">2025</span>
+            <a href="https://smessaert.be" rel="schema:copyrightHolder"><span
+                    resource="https://solid.smessie.com/profile/card#me">Ieben Smessaert</span></a>,
+            <a href="#" rel="schema:copyrightHolder"><span
+                    resource="https://data.knows.idlab.ugent.be/person/ajuvercr/#me">Arthur Vercruysse</span></a>,
+            <a href="https://julianrojas.org/" rel="schema:copyrightHolder"><span
+                    resource="https://julianrojas.org/#me">Julián Rojas Meléndez</span></a>,
+            <a href="https://pietercolpaert.be/" rel="schema:copyrightHolder"><span
+                    resource="https://pietercolpaert.be/#me">Pieter Colpaert</span></a>
+            — <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" property="schema:license">Creative
+                Commons Attribution 4.0</a>, unless otherwise indicated.
+        </p>
+        <a href="https://github.com/rdf-connect/Tutorial-SEMANTiCS2025">Source</a>
+    </footer>
 
-  <ol>
-    <li>📂 <strong>Pipeline 1:</strong> HTTP Fetch → Log contents ✅</li>
-    <li>🌦️ <strong>Pipeline 2:</strong> Weather API → RDF → Validation → Publish ✅</li>
-    <li>🤖 <strong>Step 3:</strong> Implement your own ML processor in Python</li>
-    <li>🌦️ <strong>Pipeline 3:</strong> Weather API → RDF → Translation → Validation → Publish</li>
-  </ol>
-
-    <p>
-        Follow allong in the GitHub repository.<br>
-        Each branch is a task or a step in the tasks!<br>
-        <a href=https://github.com/rdf-connect/vienna-weather-forecast-kg-pipeline>github.com/rdf-connect/vienna-weather-forecast-kg-pipeline</a>
-    </p>
-</section>
-
-<section id="proc1" class="slide" inlist="" rel="schema:hasPart" resource="#proc1">
-    <h2 property="schema:name">Add Python runner</h2>
-    <p>
-        Please follow along on the GitHub repository, it can be quite tricky.
-    </p>
-</section>
-
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Hands-On Pipelines</h2>
-
-  <ol>
-    <li>📂 <strong>Pipeline 1:</strong> HTTP Fetch → Log contents ✅</li>
-    <li>🌦️ <strong>Pipeline 2:</strong> Weather API → RDF → Validation → Publish ✅</li>
-    <li>🤖 <strong>Step 3:</strong> Implement your own ML processor in Python ✅</li>
-    <li>🌦️ <strong>Pipeline 3:</strong> Weather API → RDF → Translation → Validation → Publish</li>
-  </ol>
-
-    <p>
-        Follow allong in the GitHub repository.<br>
-        Each branch is a task or a step in the tasks!<br>
-        <a href=https://github.com/rdf-connect/vienna-weather-forecast-kg-pipeline>github.com/rdf-connect/vienna-weather-forecast-kg-pipeline</a>
-    </p>
-</section>
-
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Pipeline 3: Weather API With ML</h2>
-
-  <div style="text-align:center; margin-top:2rem;">
-    <img src="img/pipeline3.svg" style="max-width:80%;" alt="Pipeline 3 Diagram">
-  </div>
-    <p>
-        Follow along on branch tbd.
-    </p>
-</section>
-
-<section class="slide" inlist="" rel="schema:hasPart">
-  <h2 property="schema:name">Hands-On Pipelines</h2>
-
-  <ol>
-    <li>📂 <strong>Pipeline 1:</strong> HTTP Fetch → Log contents ✅</li>
-    <li>🌦️ <strong>Pipeline 2:</strong> Weather API → RDF → Validation → Publish ✅</li>
-    <li>🤖 <strong>Step 3:</strong> Implement your own ML processor in Python ✅</li>
-    <li>🌦️ <strong>Pipeline 3:</strong> Weather API → RDF → Validation → Translation → Publish ✅</li>
-  </ol>
-
-    <p style="text-align: center;font-size: 1.2em;">
-       <strong>Thank you!</strong>
-    </p>
-    <p>
-        We sincerely hope you like it and found the tutorial insightful.
-    </p>
-</section>
-
-<footer>
-    <p class="license">
-        &#169; <span property="schema:copyrightYear">2025</span>
-        <a href="https://smessaert.be" rel="schema:copyrightHolder"><span resource="https://solid.smessie.com/profile/card#me">Ieben Smessaert</span></a>,
-        <a href="#" rel="schema:copyrightHolder"><span resource="https://data.knows.idlab.ugent.be/person/ajuvercr/#me">Arthur Vercruysse</span></a>,
-        <a href="https://julianrojas.org/" rel="schema:copyrightHolder"><span resource="https://julianrojas.org/#me">Julián Rojas Meléndez</span></a>,
-        <a href="https://pietercolpaert.be/" rel="schema:copyrightHolder"><span resource="https://pietercolpaert.be/#me">Pieter Colpaert</span></a>
-        — <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" property="schema:license">Creative
-        Commons Attribution 4.0</a>, unless otherwise indicated.
-    </p>
-    <a href="https://github.com/rdf-connect/Tutorial-SEMANTiCS2025">Source</a>
-</footer>
-
-<script src="shower/shower.js"></script>
-<!-- Copyright © 2024 Yours Truly, Famous Inc. -->
+    <script src="shower/shower.js"></script>
+    <!-- Copyright © 2024 Yours Truly, Famous Inc. -->
 
 
     <script>
@@ -720,4 +633,5 @@ npx rdfc pipeline.ttl
         });
     </script>
 </body>
+
 </html>
