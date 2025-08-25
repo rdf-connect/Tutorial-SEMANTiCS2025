@@ -5,9 +5,14 @@
     <title>Building Streaming and Cross-Environment Data Processing Pipelines with RDF-Connect</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-turtle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-gradle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+
     <link rel="stylesheet" href="node_modules/@shower/material/styles/styles.css">
     <link rel="stylesheet" href="styles/custom.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
@@ -547,48 +552,244 @@
         <h2 property="schema:name" class="big">Let's run a pipeline!</strong></h2>
     </section>
 
-    <section id="proc1" class="slide" inlist="" rel="schema:hasPart" resource="#proc1">
-        <h2 property="schema:name">Description of the exercise pipeline without translation</h2>
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Hands-On Pipelines</h2>
+
+  <ol>
+    <li>📂 <strong>Pipeline 1:</strong> HTTP Fetch → Log contents</li>
+    <li>🌦️ <strong>Pipeline 2:</strong> Weather API → RDF → Validation → Publish</li>
+    <li>🤖 <strong>Step 3:</strong> Implement your own ML processor in Python</li>
+    <li>🌦️ <strong>Pipeline 3:</strong> Weather API → RDF → Translation → Validation → Publish</li>
+  </ol>
+
+    <p>
+        Follow allong in the GitHub repository.<br>
+        Each branch is a task or a step in the tasks!<br>
+        <a href=https://github.com/rdf-connect/vienna-weather-forecast-kg-pipeline>github.com/rdf-connect/vienna-weather-forecast-kg-pipeline</a>
+    </p>
+</section>
+
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Pipeline 1: File → Log</h2>
+
+  <div style="text-align:center; margin-top:2rem;">
+    <img src="img/pipeline1.svg" style="max-width:80%;" alt="Pipeline 1 Diagram">
+  </div>
+            <p>
+                Follow along on branch tbd.
+            </p>
+</section>
+
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Pipeline 1: Setup</h2>
+
+  <p style="font-size:1.2em;">Install the orchestrator and processors:</p>
+
+  <pre><code class="language-bash" data-trim>
+npm install @rdfc/orchestrator-js
+npm install @rdfc/http-utils-processor-ts
+npm install @rdfc/log-processor-ts
+  </code></pre>
+
+  <div style="font-size:0.9em; margin-top:1em;">
+    🛠️ The <strong>log processor</strong> is also available in <em>Python</em> and <em>Java</em>.<br>
+    You can swap it to see cross-language interoperability in action!
+  </div>
+</section>
+
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Pipeline 1: Configuration</h2>
+
+      <pre><code  style="font-size:0.5em; line-height:1.6;" class="language-turtle" data-trim data-noformat>
+@prefix rdfc: &lt;https://w3id.org/rdf-connect#&gt;.
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt;.
+      </code></pre>
+  <div style="display:flex; gap:2rem">
+    <!-- Left column -->
+    <div style="flex:1;">
+            <pre><code style="font-size:0.5em; line-height:1.6;" id="runner-snippet" class="language-turtle"
+                    data-src="code/pipeline-1.1.ttl"></code></pre>
+    </div>
+
+    <!-- Right column -->
+    <div style="flex:1;">
+            <pre><code style="font-size:0.5em; line-height:1.6;" id="runner-snippet" class="language-turtle"
+                    data-src="code/pipeline-1.2.ttl"></code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Pipeline 1: Run the Pipeline</h2>
+
+  <p style="font-size:1.2em;">Start the orchestrator with the configuration file:</p>
+
+  <pre><code class="language-bash" data-trim>
+npx rdfc pipeline.ttl
+  </code></pre>
+
+  <div style="margin-top:2rem; text-align:center;">
+    ✅ You should see the HTTP contents being logged.  
+  </div>
+</section>
+
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Hands-On Pipelines</h2>
+
+  <ol>
+    <li>📂 <strong>Pipeline 1:</strong> HTTP Fetch → Log contents</li>
+    <li>🌦️ <strong>Pipeline 2:</strong> Weather API → RDF → Validation → Publish</li>
+    <li>🤖 <strong>Step 3:</strong> Implement your own ML processor in Python</li>
+    <li>🌦️ <strong>Pipeline 3:</strong> Weather API → RDF → Translation → Validation → Publish</li>
+  </ol>
+
+    <p>
+        Follow allong in the GitHub repository.<br>
+        Each branch is a task or a step in the tasks!<br>
+        <a href=https://github.com/rdf-connect/vienna-weather-forecast-kg-pipeline>github.com/rdf-connect/vienna-weather-forecast-kg-pipeline</a>
+    </p>
+</section>
+
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Pipeline 2: Weather API</h2>
+
+  <div style="text-align:center; margin-top:2rem;">
+    <img src="img/pipeline2.svg" style="max-width:80%;" alt="Pipeline 2 Diagram">
+  </div>
+    <p>
+        Follow along on branch tbd.
+    </p>
+</section>
+
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Weather API Pipeline: JavaScript Setup</h2>
+
+  <p style="font-size:1.2em;">Install the orchestrator and required processors:</p>
+
+  <pre><code class="language-bash" data-trim>
+npm install @rdfc/file-utils-processors-ts
+npm install @rdfc/shacl-processor-ts
+npm install @rdfc/sparql-ingest-processor-ts
+  </code></pre>
+</section>
+
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Weather API Pipeline: Java Setup</h2>
+
+  <p style="font-size:1.2em;">Add the required dependency to your Gradle build file:</p>
+
+<div style="display:flex; gap:2rem">
+
+    <div style="flex:1;">
+  <pre><code style="font-size:0.5em;" class="language-gradle" data-trim>
+plugins { id 'java' }
+repositories {
+    mavenCentral()
+    maven { url = uri("https://jitpack.io") }
+}
+dependencies {
+    implementation("com.github.rdf-connect:rml-processor-jvm:master-SNAPSHOT:all")
+}
+tasks.register('copyPlugins', Copy) {
+    from configurations.runtimeClasspath
+    into "$buildDir/plugins"
+}
+    </code></pre>
+    </div>
+    <div style="flex:1; font-size:0.7em">
         <p>
-            TODO: Describe the pipeline and how to run it
+        Install jars with<br><em>gradle copyPlugins</em>.
         </p>
-    </section>
-
-    <section id="recap_proc" class="slide index" inlist="" rel="schema:hasPart" resource="#recap_proc">
-        <h2 property="schema:name" class="big">How to implement a processor?</strong></h2>
-    </section>
-
-    <section id="proc1" class="slide" inlist="" rel="schema:hasPart" resource="#proc1">
-        <h2 property="schema:name">Recap of a processor structure</h2>
         <p>
-            TODO: Internal code structure (init and operational methods)
+        The jvm-runner downloads the jvm-runner itselve, no installing required.
         </p>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section id="proc2" class="slide" inlist="" rel="schema:hasPart" resource="#proc2">
-        <h2 property="schema:name">Hands-on: Build your own processor</h2>
-        <p>
-            TODO: Describe the goal and Link to the step-by-step guide
-        </p>
-    </section>
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Pipeline 1: Run the Pipeline</h2>
 
-    <section id="recap_pipl" class="slide index" inlist="" rel="schema:hasPart" resource="#recap_pipl">
-        <h2 property="schema:name" class="big">Let's rerun the pipeline with your processor</strong></h2>
-    </section>
+  <p style="font-size:1.2em;">Start the orchestrator with the configuration file:</p>
 
-    <section id="pipe2" class="slide" inlist="" rel="schema:hasPart" resource="#pipe2">
-        <h2 property="schema:name">Bringing all together</h2>
-        <p>
-            TODO: How to include the created processor in the previous hands-on into the pipeline descriptor?
-        </p>
-    </section>
+  <pre><code class="language-bash" data-trim>
+npx rdfc pipeline.ttl
+  </code></pre>
 
-    <section id="pipe4" class="slide" inlist="" rel="schema:hasPart" resource="#pipe4">
-        <h2 property="schema:name">Hands-on: Let's run a pipeline</h2>
-        <p>
-            TODO: Link to the step-by-step guide
-        </p>
-    </section>
+  <div style="margin-top:2rem; text-align:center;">
+    Don't forget to start a SPARQL endpoint.
+  </div>
+</section>
+
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Hands-On Pipelines</h2>
+
+  <ol>
+    <li>📂 <strong>Pipeline 1:</strong> HTTP Fetch → Log contents ✅</li>
+    <li>🌦️ <strong>Pipeline 2:</strong> Weather API → RDF → Validation → Publish ✅</li>
+    <li>🤖 <strong>Step 3:</strong> Implement your own ML processor in Python</li>
+    <li>🌦️ <strong>Pipeline 3:</strong> Weather API → RDF → Translation → Validation → Publish</li>
+  </ol>
+
+    <p>
+        Follow allong in the GitHub repository.<br>
+        Each branch is a task or a step in the tasks!<br>
+        <a href=https://github.com/rdf-connect/vienna-weather-forecast-kg-pipeline>github.com/rdf-connect/vienna-weather-forecast-kg-pipeline</a>
+    </p>
+</section>
+
+<section id="proc1" class="slide" inlist="" rel="schema:hasPart" resource="#proc1">
+    <h2 property="schema:name">Add Python runner</h2>
+    <p>
+        Please follow along on the GitHub repository, it can be quite tricky.
+    </p>
+</section>
+
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Hands-On Pipelines</h2>
+
+  <ol>
+    <li>📂 <strong>Pipeline 1:</strong> HTTP Fetch → Log contents ✅</li>
+    <li>🌦️ <strong>Pipeline 2:</strong> Weather API → RDF → Validation → Publish ✅</li>
+    <li>🤖 <strong>Step 3:</strong> Implement your own ML processor in Python ✅</li>
+    <li>🌦️ <strong>Pipeline 3:</strong> Weather API → RDF → Translation → Validation → Publish</li>
+  </ol>
+
+    <p>
+        Follow allong in the GitHub repository.<br>
+        Each branch is a task or a step in the tasks!<br>
+        <a href=https://github.com/rdf-connect/vienna-weather-forecast-kg-pipeline>github.com/rdf-connect/vienna-weather-forecast-kg-pipeline</a>
+    </p>
+</section>
+
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Pipeline 3: Weather API With ML</h2>
+
+  <div style="text-align:center; margin-top:2rem;">
+    <img src="img/pipeline3.svg" style="max-width:80%;" alt="Pipeline 3 Diagram">
+  </div>
+    <p>
+        Follow along on branch tbd.
+    </p>
+</section>
+
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Hands-On Pipelines</h2>
+
+  <ol>
+    <li>📂 <strong>Pipeline 1:</strong> HTTP Fetch → Log contents ✅</li>
+    <li>🌦️ <strong>Pipeline 2:</strong> Weather API → RDF → Validation → Publish ✅</li>
+    <li>🤖 <strong>Step 3:</strong> Implement your own ML processor in Python ✅</li>
+    <li>🌦️ <strong>Pipeline 3:</strong> Weather API → RDF → Validation → Translation → Publish ✅</li>
+  </ol>
+
+    <p style="text-align: center;font-size: 1.2em;">
+       <strong>Thank you!</strong>
+    </p>
+    <p>
+        We sincerely hope you like it and found the tutorial insightful.
+    </p>
+</section>
 
     <footer>
         <p class="license">
