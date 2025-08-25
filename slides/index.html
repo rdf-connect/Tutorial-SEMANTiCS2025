@@ -66,7 +66,7 @@
             <ul>
                 <li style="margin-left: 80px;">What will we do in this tutorial? 🤔</li>
                 <li style="margin-left: 80px;">The what and why of RDF-Connect? 🎯</li>
-                <li style="margin-left: 80px;">RDF-Connect architecture & components ⚙️</li>
+                <li style="margin-left: 80px;">RDF-Connect Architecture & Components ⚙️</li>
             </ul>
             <li style="margin-top: 10px;"><strong>Coffee break ☕ (10m)</strong></li>
             <li style="margin-top: 10px;"><strong>Second part: Hands-on (1:30h)</strong></li>
@@ -109,7 +109,7 @@
                     a RDF graph store.
                 </p>
                 <div style="text-align: center">
-                    <img src="img/fig-0.svg" style="width: 80%;" />
+                    <img src="img/diagrams.svg" style="width: 80%;" />
                 </div>
             </div>
         </div>
@@ -303,7 +303,7 @@
     </section>
 
     <section id="rdfc_arch" class="slide index" inlist="" rel="schema:hasPart" resource="#rdfc_arch">
-        <h2 property="schema:name" sclass="big">RDF-Connect architecture & components</strong></h2>
+        <h2 property="schema:name" sclass="big">RDF-Connect Architecture & Components</strong></h2>
     </section>
 
     <section class="slide" inlist="" rel="schema:hasPart">
@@ -313,8 +313,8 @@
             </li>
             <li>2. Data is transformed into RDF using <b>RML</b>
             </li>
-            <li>3. RDF data is <b>validated</b> against a shape</li>
-            <li>4. <b>Translate</b> to literals to native language</li>
+            <li>3. <b>Translate</b> to literals to native language</li>
+            <li>4. RDF data is <b>validated</b> against a shape</li>
             <li>5. RDF data is <b>published</b> through a triple store</li>
         </ul>
 
@@ -531,9 +531,12 @@
 
     <section class="slide" inlist="" rel="schema:hasPart">
         <h2 property="schema:name">RDF-Connect dive in: Python ecosystem</h2>
-        <p>
-            TODO: Overview and main links to resources
-        </p>
+        <ul style="font-size:1.1em; line-height:1.5;">
+            <li>⚡ Processor extends an abstract class</li>
+            <li>⚙️ Runner provides Readers & Writers to handle messages idiomatically</li>
+            <li>📦 Processors can be published to PyPI with their config</li>
+            <li>📥 Pipelines include processors with <code>uv add</code></li>
+        </ul>
     </section>
 
     <section id="recap_proc" class="slide index" inlist="" rel="schema:hasPart" resource="#recap_proc">
