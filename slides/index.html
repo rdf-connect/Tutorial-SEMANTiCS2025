@@ -487,12 +487,27 @@
         </ul>
     </section>
 
-    <section class="slide" inlist="" rel="schema:hasPart">
-        <h2 property="schema:name">RDF-Connect dive in: Logging</h2>
-        <p>
-            TODO: Explanation of how logging works
-        </p>
-    </section>
+<section class="slide" inlist="" rel="schema:hasPart">
+  <h2 property="schema:name">Deep Dive: Centralized Logging</h2>
+
+  <ul>
+    <li>📊 <strong>One place for all logs</strong><br>
+        The orchestrator aggregates logs from every runner and processor.</li>
+
+    <li>🧩 <strong>Idiomatic in every language</strong><br>
+        Keep using your ecosystem’s standard logger; runners forward those logs to the orchestrator.</li>
+
+    <li>🎯 <strong>Targeted DEBUG</strong><br>
+        Show debug output only for a specific component by using its name from the pipeline descriptor.<br>
+        <span style="font-size:0.95em;">
+          Example (bash): <strong><code>DEBUG=:fetcher npx rdfc pipeline.ttl</code></strong>
+        </span><br>
+    </li>
+
+    <li>🔉 <strong>Sensible defaults</strong><br>
+        Info and errors are shown by default; <code>debug</code> is opt-in via <code>DEBUG</code>.</li>
+  </ul>
+</section>
 
     <section class="slide" inlist="" rel="schema:hasPart">
         <h2 property="schema:name">JavaScript Ecosystems</h2>
