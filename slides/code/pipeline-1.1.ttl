@@ -13,6 +13,6 @@
 <> a rdfc:Pipeline;
   rdfc:consistsOf [
     rdfc:instantiates rdfc:NodeRunner;
-    rdfc:processor <read>, <log>;
+    rdfc:processor <fetch>, <log>;
   ].
 

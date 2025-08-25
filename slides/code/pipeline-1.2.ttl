@@ -1,8 +1,7 @@
 ### Define the processors
-<read> a rdfc:GlobRead;
-  rdfc:glob <./pipeline.ttl>;
-  rdfc:output <channel>;
-  rdfc:closeOnEnd "true".
+<fetch> a rdfc:HttpFetch;
+  rdfc:url "https://dataset.api.hub.geosphere.at/v1/station/current/tawes-v1-10min?parameters=TL,RR&station_ids=11035";
+  rdfc:writer <channel>.
 
 <log> a rdfc:LogProcessorJs;
   rdfc:reader <channel>;
