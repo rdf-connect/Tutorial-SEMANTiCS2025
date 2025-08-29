@@ -108,8 +108,7 @@ footer a {
     content: none;
 }
 
-.slide ul>li {
-    margin-left: 1em;
+.slide ul>li, .slide ol>li {
     margin-bottom: 0.8em;
     line-height: 1.2em;
 }
@@ -166,8 +165,12 @@ h6 {
     color: #777676;
 }
 
+.slide.index li {
+    margin-bottom: 1.1em;
+}
+
 .slide.index li.current a {
-    color: #111;
+    color: #0099bf;
 }
 
 .slide h2.big {
@@ -200,7 +203,11 @@ li.inactive {
 }
 
 .indent {
-    padding-left: 2em;
+    padding-left: 2em !important;
+}
+
+.far-indent {
+    padding-left: 10em !important;
 }
 
 .inline {

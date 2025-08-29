@@ -68,15 +68,17 @@ conceptual foundations of the RDFC framework and hands-on implementation.
 
 <figure id="planning" markdown="1" class="table">
 
-|                                     | Topic                                            | Duration |
-|-------------------------------------|--------------------------------------------------|----------|
-| **Morning: Introduction** (_1:30_)  | Why RDF-Connect?                                 | 0:30     |
-|                                     | RDF-Connect architecture & components            | 1:00     |
-| *Lunch Break*                       | ---                                              | ---      |
-| **Afternoon: Hands-on** (_1:30_)    | Recap: How to implement a RDFC Processor?        | 0:10     |
-|                                     | **Hands-on**: Implementing a processor           | 0:35     |
-|                                     | Recap: How to build and execute a RDFC Pipeline? | 0:10     |
-|                                     | **Hands-on**: Assembling a pipeline              | 0:35     |
+|                                    | Topic                                            | Duration |
+|------------------------------------|--------------------------------------------------|----------|
+| **Morning: Introduction** (_1:30_) | What will we do in this tutorial?                | 0:05     |
+|                                    | Assembling our very first pipeline               | 0:30     |
+|                                    | The what and why of RDF-Connect?                 | 0:20     |
+|                                    | RDF-Connect architecture & components            | 0:35     |
+| *Lunch Break*                      | ---                                              | ---      |
+| **Afternoon: Hands-on** (_1:30_)   | Recap: How to build and execute a RDFC Pipeline? | 0:10     |
+|                                    | **Hands-on**: Assembling a pipeline              | 0:35     |
+|                                    | Recap: How to implement a RDFC Processor?        | 0:10     |
+|                                    | **Hands-on**: Implementing a processor           | 0:35     |
 
 <figcaption markdown="block">
 Planning of the tutorial
@@ -87,6 +89,15 @@ Planning of the tutorial
 The program is structured in two sessions, one in the morning and one in the afternoon, progressively building from a
 conceptual overview to hands-on development.
 
-The **first session** start by providing an overview of the tutorial’s content and a description of the pipeline, participants will build throughout the day. Then, the motivation and rationale of RDFC will be presented, together with its high level architecture.
+The **first session** starts by providing an overview of the tutorial’s content and a description of the pipeline,
+participants will build throughout the day, while already assembling a very first small pipeline to give the
+participants some practical feeling of what RDF-Connect is and can do for them. Then, the motivation and rationale of
+RDFC will be presented, together with its high level architecture.
 
-The **second session** is primarily hands-on, focusing on (i) _processor development_: participants will learn to implement a processor in a language of choice and configure it for pipeline integration. Concretely, the participants will implement a processor that transforms a stream of RDF triples based on a configured language translation, by leveraging a lightweight ML model to perform the translations locally; and (ii) _pipeline assembly_: participants will construct a working streaming pipeline, using both existing and the participant's custom-built processor, that pulls data, applies transformations, validates and publishes the results to a triple store.
+The **second session** is primarily hands-on, focusing on (i) _pipeline assembly_: participants will construct a working
+streaming pipeline, using existing processors, that pulls
+data, applies transformations, validates and publishes the results to a triple store; and (ii) _processor development_:
+participants will learn to implement a processor in a language of choice and configure it for pipeline integration.
+Concretely, the participants will implement a processor that transforms a stream of RDF triples based on a configured
+language translation, by leveraging a lightweight ML model to perform the translations locally, and integrate it into
+their pipeline.

@@ -1,0 +1,9 @@
+@prefix rdfc: <https://w3id.org/rdf-connect#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+rdfc:TemplateProcessor rdfc:jsImplementationOf rdfc:Processor;
+    rdfs:label "JavaScript Template Processor";
+    rdfs:comment "Template processor to kickstart your next JS/TS RDF-Connect processor";
+    rdfc:file <./lib/index.js>;
+    rdfc:class "TemplateProcessor";
+    rdfc:entrypoint <./>.
