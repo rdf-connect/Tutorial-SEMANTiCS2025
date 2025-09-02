@@ -1228,7 +1228,7 @@ npx rdfc pipeline.ttl
                 <em>rdfc:Reader</em> & <em>rdfc:Writer</em></p>
             <p style="line-height: 1.2em; margin-bottom: 1em;"><em>sh:name</em> links to variable name in code</p>
             <p style="line-height: 1.2em; margin-bottom: 1em;"><em>sh:path</em> links to property in pipeline.ttl</p>
-            <p style="line-height: 1.2em; margin-bottom: 1em;">Optional and multiple argumnets with <em>sh:minCount</em> and <em>sh:maxCount</em><br>
+            <p style="line-height: 1.2em; margin-bottom: 1em;">Optional and multiple arguments with <em>sh:minCount</em> and <em>sh:maxCount</em><br>
                 <span style="font-size: 0.7em"> (sh:maxCount != 1 results in a list of arguments) </span>
             </p>
         </div>
@@ -1377,8 +1377,8 @@ uv add ../processor/dist/rdfc_translation_processor.tar.gz
     <pre style="padding-top: 0.5em; padding-bottom: 0.5em; margin-bottom: 0.3em; margin-top: -0.3em;"><code
             class="language-turtle" style="line-height: 1.2em; font-size: 0.75em;" data-trim>
 &lt;translator&gt; a rdfc:TranslationProcessor;
-    rdfc:reader &lt;rdf&gt;
-    rdfc:writer &lt;translated&gt;
+    rdfc:reader &lt;rdf&gt;;
+    rdfc:writer &lt;translated&gt;;
     ... .
     </code></pre>
 </section>
