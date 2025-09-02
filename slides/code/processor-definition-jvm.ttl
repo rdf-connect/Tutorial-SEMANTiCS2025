@@ -1,0 +1,8 @@
+@prefix rdfc: <https://w3id.org/rdf-connect#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+rdfc:TemplateProcessor rdfc:javaImplementationOf rdfc:Processor;
+    rdfs:label "Java Template Processor";
+    rdfs:comment "Template processor to kickstart your next Java RDF-Connect processor";
+    rdfc:class "org.example.template.TemplateProcessor";
+    rdfc:jar <>.

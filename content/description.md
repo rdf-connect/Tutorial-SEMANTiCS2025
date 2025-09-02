@@ -63,24 +63,22 @@ data-centric systems.
 
 {:#format}
 
-This tutorial is designed as a **full-day session** as outlined in [](#planning). It includes presentations of the
+This tutorial is designed as a **half-day session** as outlined in [](#planning). It includes presentations of the
 conceptual foundations of the RDFC framework and hands-on implementation.
 
 <figure id="planning" markdown="1" class="table">
 
-|                                     | Topic                                            | Duration |
-|-------------------------------------|--------------------------------------------------|----------|
-| **Morning 1: Introduction**         | Introduction                                     | 0:10     |
-| (_1:20_)                            | Introduction to RDF-Connect Processors           | 0:40     |
-|                                     | Introduction to RDF-Connect Pipelines            | 0:30     |
-| *Break*                             | ---                                              | ---      |
-| **Morning 2: Processors** (_1:20_)  | Recap: How to implement a RDFC Processor?        | 0:10     |
-|                                     | Hands-on: Implementing a processor               | 1:10     |
-| *Lunch Break*                       | ---                                              | ---      |
-| **Afternoon 1: Apps** (_1:20_)      | Recap: How to build and execute a RDFC Pipeline? | 0:10     |
-|                                     | Hands-on: Assembling a pipeline                  | 1:10     |
-| *Break*                             | ---                                              | ---      |
-| **Afternoon 1: Hackathon** (_1:20_) | Hackathon                                        | 1:20     |
+|                                    | Topic                                            | Duration |
+|------------------------------------|--------------------------------------------------|----------|
+| **Morning: Introduction** (_1:30_) | What will we do in this tutorial?                | 0:05     |
+|                                    | Assembling our very first pipeline               | 0:30     |
+|                                    | The what and why of RDF-Connect?                 | 0:20     |
+|                                    | RDF-Connect architecture & components            | 0:35     |
+| *Lunch Break*                      | ---                                              | ---      |
+| **Afternoon: Hands-on** (_1:30_)   | Recap: How to build and execute a RDFC Pipeline? | 0:10     |
+|                                    | **Hands-on**: Assembling a pipeline              | 0:35     |
+|                                    | Recap: How to implement a RDFC Processor?        | 0:10     |
+|                                    | **Hands-on**: Implementing a processor           | 0:35     |
 
 <figcaption markdown="block">
 Planning of the tutorial
@@ -88,23 +86,18 @@ Planning of the tutorial
 </figure>
 
 
-The program is structured into four sessions, two in the morning and two in the afternoon, progressively building from a
+The program is structured in two sessions, one in the morning and one in the afternoon, progressively building from a
 conceptual overview to hands-on development.
-The day concludes with a collaborative hackathon where participants apply what they have learned to explore extensions
-or develop new applications.
 
-The **first session** introduces RDFC's architecture at a high level.
-It also provides an overview of the tutorial’s content and a detailed description of the pipeline, participants will
-build throughout the day.
+The **first session** starts by providing an overview of the tutorial’s content and a description of the pipeline,
+participants will build throughout the day, while already assembling a very first small pipeline to give the
+participants some practical feeling of what RDF-Connect is and can do for them. Then, the motivation and rationale of
+RDFC will be presented, together with its high level architecture.
 
-The **second session** focuses on processor development. Participants will learn to implement a processor in a
-language of choice and configure it for pipeline integration.
-They will implement a processor that transforms a stream of RDF triples based on a configured language translation.
-The implementation will leverage a lightweight ML model to perform the translations locally.
-
-The **third session** covers pipeline assembly using both existing and the participant's custom-built processor.
-Participants will construct a working streaming pipeline that pulls data, applies transformations, validates,
-and publishes the results to a triple store.
-
-The **fourth session** is a hackathon, where all participants work together to either extend the pipeline created in the
-previous session with new data sources, or build a new pipeline using existing processors to achieve a different goal.
+The **second session** is primarily hands-on, focusing on (i) _pipeline assembly_: participants will construct a working
+streaming pipeline, using existing processors, that pulls
+data, applies transformations, validates and publishes the results to a triple store; and (ii) _processor development_:
+participants will learn to implement a processor in a language of choice and configure it for pipeline integration.
+Concretely, the participants will implement a processor that transforms a stream of RDF triples based on a configured
+language translation, by leveraging a lightweight ML model to perform the translations locally, and integrate it into
+their pipeline.

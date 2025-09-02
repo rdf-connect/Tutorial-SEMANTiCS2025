@@ -19,16 +19,24 @@ a,
     transition: .2s;
     background-image: none !important;
 }
+
 a:hover {
     color: #00aad4;
     border-bottom: 2px solid #00aad4;
 }
 
-h1, h2, h3, h4, h5, h6, .subtitle {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.subtitle {
     font-family: 'Droid Sans', sans-serif !important;
 }
 
-.shower.list, .slide {
+.shower.list,
+.slide {
     color: #111;
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -40,11 +48,7 @@ h1, h2, h3, h4, h5, h6, .subtitle {
 
 .caption h1 {
     font-weight: bold;
-    margin-right: calc(
-            var(--slide-gap) *
-            var(--slide-scale) +
-            env(safe-area-inset-left)
-    );
+    margin-right: calc(var(--slide-gap) * var(--slide-scale) + env(safe-area-inset-left));
 }
 
 header .subtitle {
@@ -72,11 +76,7 @@ header .venue {
     background-color: #424242;
     border: 1px solid #00aad4;
     padding: 0.5em;
-    margin-right: calc(
-            var(--slide-gap) *
-            var(--slide-scale) +
-            env(safe-area-inset-left)
-    );
+    margin-right: calc(var(--slide-gap) * var(--slide-scale) + env(safe-area-inset-left));
 }
 
 .caption .captiondata p {
@@ -104,26 +104,25 @@ footer a {
     padding: 30px 60px 0 60px;
 }
 
-.slide ul > li::before {
+.slide ul>li::before {
     content: none;
 }
 
-.slide ul > li {
-    margin-left: 1em;
+.slide ul>li, .slide ol>li {
     margin-bottom: 0.8em;
     line-height: 1.2em;
 }
 
-.slide ul.inline > li {
+.slide ul.inline>li {
     display: inline;
     margin: 0;
 }
 
-.slide ul.inline > li:after {
+.slide ul.inline>li:after {
     content: ", ";
 }
 
-.slide ul.inline > li:last-child:after {
+.slide ul.inline>li:last-child:after {
     content: "";
 }
 
@@ -148,7 +147,11 @@ footer a {
     margin-left: 1em;
 }
 
-.slide h2, h3, h4, h5, h6 {
+.slide h2,
+h3,
+h4,
+h5,
+h6 {
     color: #0099bf;
 }
 
@@ -162,8 +165,12 @@ footer a {
     color: #777676;
 }
 
+.slide.index li {
+    margin-bottom: 1.1em;
+}
+
 .slide.index li.current a {
-    color: #111;
+    color: #0099bf;
 }
 
 .slide h2.big {
@@ -196,7 +203,11 @@ li.inactive {
 }
 
 .indent {
-    padding-left: 2em;
+    padding-left: 2em !important;
+}
+
+.far-indent {
+    padding-left: 10em !important;
 }
 
 .inline {
@@ -225,7 +236,7 @@ li.inactive {
     white-space: pre;
 }
 
-.slide tr:not(:last-of-type) > * {
+.slide tr:not(:last-of-type)>* {
     background: none;
 }
 
@@ -267,4 +278,9 @@ iframe {
         border-top: none;
         border-bottom: none;
     }
+}
+
+pre[class*="language-"] {
+    overflow: hidden;
+
 }

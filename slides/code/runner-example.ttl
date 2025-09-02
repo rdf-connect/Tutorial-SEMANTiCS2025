@@ -1,0 +1,22 @@
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix rdfc: <https://w3id.org/rdf-connect#>.
+
+[ ] a sh:NodeShape;
+  sh:targetSubjectsOf rdfc:jsImplementationOf;
+  sh:property [
+    sh:path rdfc:entrypoint; sh:name "location";
+    sh:minCount 1; sh:maxCount 1;
+    sh:datatype xsd:string;
+  ], [
+    sh:path rdfc:file; sh:name "file";
+    sh:minCount 1; sh:maxCount 1;
+    sh:datatype xsd:string;
+  ], [
+    sh:path rdfc:class; sh:name "clazz";
+    sh:maxCount 1;
+    sh:datatype xsd:string;
+  ].
+

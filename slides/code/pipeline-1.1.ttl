@@ -1,0 +1,18 @@
+@prefix rdfc: <https://w3id.org/rdf-connect#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+### Import runners and processors
+<> owl:imports <./node_modules/@rdfc/js-runner/index.ttl>,
+  <./node_modules/@rdfc/http-utils-processor-ts/processors.ttl>,
+  <./node_modules/@rdfc/log-processor-ts/processor.ttl>.
+
+### Define the channels
+<json> a rdfc:Writer, rdfc:Reader.
+
+### Define the pipeline
+<> a rdfc:Pipeline;
+  rdfc:consistsOf [
+    rdfc:instantiates rdfc:NodeRunner;
+    rdfc:processor <fetcher>, <logger>;
+  ].
+

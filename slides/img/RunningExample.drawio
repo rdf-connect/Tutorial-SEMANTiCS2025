@@ -1,0 +1,69 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15" version="28.1.1">
+  <diagram name="Page-1" id="RPbUBwhgyt3UpfaohSyX">
+    <mxGraphModel dx="761" dy="1118" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="akrCbzuUbPyeSVbURDBk-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="akrCbzuUbPyeSVbURDBk-1" target="akrCbzuUbPyeSVbURDBk-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-1" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;RML&lt;/div&gt;Mapping file" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="238" y="290" width="70" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="akrCbzuUbPyeSVbURDBk-2" target="akrCbzuUbPyeSVbURDBk-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-2" value="Map to RDF:&lt;div&gt;RML Processor&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="213" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-3" value="Retrieve JSON:&lt;div&gt;HTTP Fetch&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-4" value="Weather API" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="290" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="akrCbzuUbPyeSVbURDBk-5" target="akrCbzuUbPyeSVbURDBk-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-5" value="&lt;div&gt;Transform RDF:&lt;div&gt;ML translator&lt;/div&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="385" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="akrCbzuUbPyeSVbURDBk-6" target="akrCbzuUbPyeSVbURDBk-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-6" value="Validate RDF:&lt;div&gt;SHACL validator&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="558" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-7" value="Publish RDF:&lt;div&gt;SPARQL ingest&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="730" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-8" value="SPARQL" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+          <mxGeometry x="760" y="290" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.558;entryY=0.033;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="akrCbzuUbPyeSVbURDBk-4" target="akrCbzuUbPyeSVbURDBk-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="540" as="sourcePoint" />
+            <mxPoint x="450" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="akrCbzuUbPyeSVbURDBk-3" target="akrCbzuUbPyeSVbURDBk-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="460" as="sourcePoint" />
+            <mxPoint x="300" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="akrCbzuUbPyeSVbURDBk-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="akrCbzuUbPyeSVbURDBk-7" target="akrCbzuUbPyeSVbURDBk-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nhfgc7L1SebW0PXmhJwM-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="nhfgc7L1SebW0PXmhJwM-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="618" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nhfgc7L1SebW0PXmhJwM-2" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;SHACL shape file&lt;br&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="583" y="290" width="70" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

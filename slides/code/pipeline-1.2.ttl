@@ -1,0 +1,12 @@
+### Define the processors
+# Processor to fetch data from a JSON API
+<fetcher> a rdfc:HttpFetch;
+  rdfc:url "https://dataset.api.hub.geosphere.at/v1/station/current/tawes-v1-10min?parameters=TL,RR&station_ids=11035";
+  rdfc:writer <json>.
+
+# Processor to log the output
+<logger> a rdfc:LogProcessorJs;
+  rdfc:reader <json>;
+  rdfc:level "info";
+  rdfc:label "output".
+

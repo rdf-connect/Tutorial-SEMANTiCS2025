@@ -1,0 +1,25 @@
+@prefix rdfc: <https://w3id.org/rdf-connect#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+[ ] a sh:NodeShape;
+    sh:targetClass rdfc:TemplateProcessor;
+    sh:property [
+        sh:class rdfc:Reader;
+        sh:path rdfc:reader;
+        sh:name "reader";
+        sh:minCount 1;
+        sh:maxCount 1;
+    ], [
+        sh:class rdfc:Writer;
+        sh:path rdfc:writer;
+        sh:name "writer";
+        sh:minCount 1;
+        sh:maxCount 1;
+    ], [
+        sh:datatype xsd:string;
+        sh:path rdfc:label;
+        sh:name "label";
+        sh:minCount 1;
+        sh:maxCount 1;
+    ].
