@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-turtle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-gradle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-json.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-bash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-typescript.min.js"></script>
@@ -685,13 +686,23 @@ LOG_LEVEL=debug npx rdfc pipeline.ttl
             Ensure pipeline definitions are consistent before execution.
         </li>
         <li style="margin-bottom: 1.5em;">🔄 <strong>Mapping RDF → JSON(-LD)</strong><br>
-            Runners don’t need to understand RDF: processor arguments are delivered as JSON (<code>sh:name</code>
-            fields map directly to JSON object fields names).
+            Define programming interface, a SHACL shape ensures the expected incoming JSON arguments.
         </li>
         <li>📖 <strong>Documentation</strong><br>
-            SHACL shapes double as a human-readable contract for processor usage.
+            SHACL shapes double as a human-readable and computer-readable contract for processor usage.
         </li>
     </ul>
+</section>
+
+<section id="shacl-shapes-example" class="slide" inlist="" rel="schema:hasPart" resource="#shacl-shapes-example">
+    <h2 property="schema:name">Deep Dive: SHACL Shapes Example</h2>
+    <div style="display: flex; gap: 2rem; align-items: flex-start; justify-content: space-between;">
+            <pre style="width: 100%;"><code style="font-size:0.5em; line-height:1.6; flex-grow:1" id="shacl-example-turtle" class="language-turtle"
+                       data-src="code/shacl-example.ttl"></code></pre>
+        <pre style="width: 100%;"><code style="font-size:0.5em; line-height:1.6; flex-grow: 1" id="shacl-example-jsonld" class="language-json"
+                   data-src="code/shacl-example.jsonld"></code></pre>
+    </div>
+</section>
 </section>
 
 <section id="orchestrator" class="slide" inlist="" rel="schema:hasPart" resource="#orchestrator">
@@ -707,7 +718,7 @@ LOG_LEVEL=debug npx rdfc pipeline.ttl
         </li>
 
         <li style="margin-bottom: 2em;">🔌 <strong>Communicate with runners</strong><br>
-            Interact with runners via <em>gRPC</em> to control processors and exchange messages.
+            Interact with runners via <strong>gRPC</strong> to control processors and exchange messages.
         </li>
 
         <li>📊 <strong>Centralized logging</strong><br>
@@ -719,21 +730,29 @@ LOG_LEVEL=debug npx rdfc pipeline.ttl
 <section id="orchestrator-responsibilities" class="slide" inlist="" rel="schema:hasPart" resource="#orchestrator-responsibilities">
     <h2 property="schema:name">Deep Dive Orchestrator: Responsibilities</h2>
 
-    <ol>
-        <li style="margin-bottom: 2.5em; margin-top: 2em;">📜 <strong>Initialize Pipeline</strong>
+    <div style="display: flex; align-items: flex-start;">
+         <div style="font-size: 0.7em;">
             <ol>
-                <li style="margin-bottom: 1.5em; margin-top: 1em;">▶️ <strong>Start runners</strong><br>
-                    Launch each runner using its configured command.
+                <li style="margin-bottom: 2.5em; margin-top: 2em;">📜 <strong>Initialize Pipeline</strong>
+                    <ol>
+                        <li style="margin-bottom: 1.5em; margin-top: 1em;">▶️ <strong>Start runners</strong><br>
+                            Launch each runner using its configured command.
+                        </li>
+                        <li>⚙️ <strong>Initialize processors</strong><br>
+                            Instruct runners to start the processors they manage.
+                        </li>
+                    </ol>
                 </li>
-                <li>⚙️ <strong>Initialize processors</strong><br>
-                    Instruct runners to start the processors they manage.
+                <li>📡 <strong>Route messages</strong><br>
+                    Deliver incoming messages to the correct runner / processor.
                 </li>
             </ol>
-        </li>
-        <li>📡 <strong>Route messages</strong><br>
-            Deliver incoming messages to the correct runner / processor.
-        </li>
-    </ol>
+        </div>
+
+        <div style="text-align:center; margin-top:2rem; flex-grow: 4;">
+            <img src="img/startup-flow.svg" style="max-width:80%;" alt="Pipeline 1 Diagram">
+        </div>
+    </div>
 </section>
 
 
@@ -757,14 +776,14 @@ LOG_LEVEL=debug npx rdfc pipeline.ttl
         </li>
         <li>🌱 <strong>Lower the barrier for new processors</strong><br>
             Runners are designed so the community can easily add their own processors.
+            Providing idiomatic interfaces for sending and receiving messages.
         </li>
     </ul>
 
     <p>
         Currently, runners exist for <a href="https://github.com/rdf-connect/js-runner" target="_blank">JavaScript</a>,
-        <a
-                href="https://github.com/rdf-connect/jvm-runner" target="_blank">JVM</a>, and <a
-            href="https://github.com/rdf-connect/py-runner" target="_blank">Python</a>.
+        <a href="https://github.com/rdf-connect/jvm-runner" target="_blank">JVM</a>, and
+        <a href="https://github.com/rdf-connect/py-runner" target="_blank">Python</a>.
     </p>
 </section>
 
@@ -778,7 +797,7 @@ LOG_LEVEL=debug npx rdfc pipeline.ttl
             Handle control messages and data exchange.
         </li>
         <li>⚙️ <strong>Manage processors</strong><br>
-            Start, stop, and monitor the processors they host.
+            Start, stop, and monitor the processors they host and forward log messages.
         </li>
     </ol>
 </section>
@@ -804,8 +823,7 @@ LOG_LEVEL=debug npx rdfc pipeline.ttl
         <li style="margin-bottom: 2em;">📥 Receives arguments mapped from RDF via SHACL</li>
         <li style="margin-bottom: 2em;">📤 Produces outputs (RDF, JSON, etc.)</li>
         <li style="margin-bottom: 2em;">🛠 Can do anything from calling APIs to generic tasks like HTTP POST</li>
-        <li style="margin-bottom: 2em;">🏗 The runner defines the implementation contract (abstract classes, interfaces,
-            etc.)
+        <li style="margin-bottom: 2em;">🏗 The runner defines the implementation contract including abstract classes, interfaces, etc.
         </li>
     </ul>
 </section>
@@ -829,8 +847,8 @@ LOG_LEVEL=debug npx rdfc pipeline.ttl
         </span><br>
         </li>
 
-        <li style="margin-bottom: 1.5em;">🔉 <strong>Sensible defaults</strong><br>
-            Info and errors are shown by default; <code>debug</code> is opt-in via <code>DEBUG</code>.
+        <li style="margin-bottom: 1.5em;">🌐 <strong>Easy to extend</strong><br>
+            Updating the orchestrator to forward messages to hubs like <strong>Elastic Stack (ELK)</strong>, <strong>Grafana Loki</strong>, or a hosted service like <strong>Datadog</strong> is trivial.
         </li>
     </ul>
 </section>
@@ -856,7 +874,7 @@ LOG_LEVEL=debug npx rdfc pipeline.ttl
 </section>
 
 <section id="python" class="slide" inlist="" rel="schema:hasPart" resource="#python">
-    <h2 property="schema:name">RDF-Connect dive in: Python ecosystem</h2>
+    <h2 property="schema:name">Python ecosystem</h2>
     <ul style="font-size:1.1em; line-height:1.5;">
         <li style="margin-bottom: 2.5em; margin-top: 2em;">⚡ Processor extends an abstract class</li>
         <li style="margin-bottom: 2.5em;">⚙️ Runner provides Readers & Writers to handle messages idiomatically</li>

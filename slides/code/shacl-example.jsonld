@@ -1,0 +1,18 @@
+{
+    "@context": {
+        "words": "http://example.org/word",
+        "writer": "http://example.org/writer"
+    },
+    "@id": "http://example.org/proc",
+    "@type": "http://example.org/FooBar",
+    "words": [ "Hello", "World", "!" ],
+    "writer": {
+        "@id": "someChannel",
+        "@type": "https://w3id.org/rdf-connect#Writer"
+    }
+}
+// Strip all json-ld
+{
+    "words": [ "Hello", "World", "!" ],
+    "writer": /* Writer Object */
+}
